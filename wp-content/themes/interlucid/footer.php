@@ -20,23 +20,15 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 	<div class="<?php echo esc_attr( $container ); ?>">
 
-		<div class="row">
+        <footer class="site-footer text-gray-500" id="colophon">
 
-			<div class="col-md-12">
+            <div class="site-info">
 
-				<footer class="site-footer" id="colophon">
+                Copyright © <script>document.write(new Date().getFullYear())</script> Interlucid
 
-					<div class="site-info">
+            </div><!-- .site-info -->
 
-                        Copyright © <script>document.write(new Date().getFullYear())</script> Interlucid
-
-					</div><!-- .site-info -->
-
-				</footer><!-- #colophon -->
-
-			</div><!--col end -->
-
-		</div><!-- row end -->
+        </footer><!-- #colophon -->
 
 	</div><!-- container end -->
 

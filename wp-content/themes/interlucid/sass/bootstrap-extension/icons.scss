@@ -1,0 +1,9 @@
+.icon {
+    display: inline-block;
+}
+
+@each $number, $size in $icon-sizes {
+    .icon-#{$number} {
+        height: $size;
+    }
+}
