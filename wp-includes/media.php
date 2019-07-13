@@ -327,7 +327,7 @@ function remove_image_size( $name ) {
  *                           An array can specify positioning of the crop area. Default false.
  */
 function set_post_thumbnail_size( $width = 0, $height = 0, $crop = false ) {
-	add_image_size( 'post-thumbnail', $width, $height, $crop );
+	// add_image_size( 'post-thumbnail', $width, $height, $crop );
 }
 
 /**

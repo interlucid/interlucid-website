@@ -32,9 +32,24 @@ $theme-colors: map-collect(
     )
 );
 
+$spacers: map-merge(
+  (
+    6: ($spacer * 5),
+    7: ($spacer * 8),
+    8: ($spacer * 12),
+  ),
+  $spacers
+);
+
 $link-color:            theme-color("primary");
-$link-hover-color:      darken($link-color, 15%);
-$link-hover-decoration: none;
+$link-hover-color:      darken($link-color, 1%);
+$link-hover-decoration: underline;
+
+// Typography
+
+$h1-font-size:          $font-size-base * 3;
+$h2-font-size:          $font-size-base * 2.3;
+$h3-font-size:          $font-size-base * 1.4;
 
 $icon-sizes: (
     "1": $font-size-base * .25,
@@ -44,4 +59,9 @@ $icon-sizes: (
     "5": $font-size-base * 2,
     "6": $font-size-base * 3,
     "7": $font-size-base * 4,
-)
+);
+
+// Navbar
+
+$navbar-dark-background-color: rgba($gray-800, 1);
+// $navbar-dark-background-image: linear-gradient(90deg, $gray-800 15%, rgba($gray-800, .5) 35% 65%, $gray-800 85%);

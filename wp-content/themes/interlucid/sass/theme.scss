@@ -1,24 +1,24 @@
-@import "../src/sass/bootstrap4/_functions"; // import default things first
-@import "../src/sass/bootstrap4/_variables";
+@import "../node_modules/bootstrap/scss/_functions"; // import default things first
+@import "../node_modules/bootstrap/scss/_variables";
 
 @import "bootstrap-extension/variables"; // import custom variables
 
-@import "../src/sass/bootstrap4/_mixins";
-@import "../src/sass/bootstrap4/_root";
-@import "../src/sass/bootstrap4/_reboot";
-
-
-
-@import "understrap/understrap";// <-------- Loads the UnderStrap defaults. Just a few classes to incorporate BS in WP
-
-// @import "understrap/woocommerce";
-// @import "assets/underscores"; // <------- Underscores media styles
+@import "../node_modules/bootstrap/scss/_mixins";
+@import "../node_modules/bootstrap/scss/_root";
+@import "../node_modules/bootstrap/scss/_reboot";
+@import "../node_modules/bootstrap/scss/_utilities";
 
 // import selected Bootstrap files
 
-@import "../src/sass/bootstrap4/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap";
 
 // import Bootstrap overrides for individual components/utilities
 
+@import "bootstrap-extension/buttons";
 @import "bootstrap-extension/icons";
 @import "bootstrap-extension/images";
+@import "bootstrap-extension/navbar";
+@import "bootstrap-extension/reboot";
+@import "bootstrap-extension/type";
+
+@import "bootstrap-extension/utilities/text";

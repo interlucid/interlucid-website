@@ -20,9 +20,9 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 	<div class="<?php echo esc_attr( $container ); ?>">
 
-        <footer class="site-footer text-gray-500" id="colophon">
+        <footer class="site-footer text-gray-600 text-center" id="colophon">
 
-            <div class="site-info">
+            <div class="site-info py-4">
 
                 Copyright © <script>document.write(new Date().getFullYear())</script> Interlucid
 

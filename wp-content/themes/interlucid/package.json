@@ -1,52 +1,48 @@
 {
-  "name": "understrap",
-  "version": "0.9.1",
+  "name": "interlucid-theme",
+  "version": "0.0.1",
   "description": "WordPress Theme framework",
   "main": "index.js",
   "scripts": {
-    "postinstall": "gulp copy-assets"
+    "css": "node-sass --output-style compressed --source-map true --source-map-contents true --precision 3 sass/theme.scss css/theme.min.css",
+    "js": "npm-run-all js-compile js-minify",
+    "js-compile": "babel es6 --out-dir js",
+    "js-minify": "terser js/theme.js node_modules/bootstrap/dist/js/bootstrap.js --compress --mangle --source-map --output js/theme.min.js",
+    "watch": "npm-run-all --parallel watch-*",
+    "watch-js": "nodemon --watch es6 --ext js --exec \"npm run js\"",
+    "watch-css": "nodemon --watch sass --ext scss --exec \"npm run css\""
   },
   "engines": {
     "npm": ">=2.1.8"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/holger1411/understrap.git"
+    "url": "https://github.com/interlucid/interlucid-website"
   },
   "keywords": [
     "wordpress",
     "theme",
     "framework",
-    "bootstrap",
-    "underscores"
+    "bootstrap"
   ],
-  "author": "Holger Koenemann",
-  "license": "GPL-2.0",
+  "author": "Brandon der Blätter",
+  "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/holger1411/understrap/issues"
+    "url": "https://github.com/interlucid/interlucid-website/issues"
   },
   "homepage": "https://understrap.com",
   "dependencies": {
-    "bootstrap": "4.3.1",
-    "browser-sync": "^2.26.3",
-    "del": "^3.0.0",
-    "font-awesome": "^4.7.0",
-    "gulp": "3.9.1",
-    "gulp-clean-css": "^4.0.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-ignore": "^2.0.2",
-    "gulp-imagemin": "^5.0.3",
-    "gulp-plumber": "^1.2.1",
-    "gulp-rename": "^1.4.0",
-    "gulp-replace": "1.0.0",
-    "gulp-rimraf": "^0.2.2",
-    "gulp-sass": "4.0.2",
-    "gulp-sequence": "1.0.0",
-    "gulp-sourcemaps": "2.6.4",
-    "gulp-uglify": "^3.0.1",
-    "gulp-watch": "5.0.1",
-    "run-sequence": "^2.2.1",
-    "undescores-for-npm": "^1.0.0",
-    "gulp-autoprefixer": "6.0.0"
+    "@babel/polyfill": "^7.4.0",
+    "bootstrap": "4.3.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
+    "babel-preset-minify": "^0.5.0",
+    "node-sass": "^4.11.0",
+    "nodemon": "^1.18.10",
+    "npm-run-all": "^4.1.5",
+    "terser": "^3.17.0"
   }
 }

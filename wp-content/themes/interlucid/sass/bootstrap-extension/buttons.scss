@@ -1,0 +1,70 @@
+
+.btn {
+    border: solid $white .1rem;
+    border-radius: .3em;
+    color: $white;
+    transition: all .5s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+
+    &:hover {
+        background-color: $gray-100;
+        color: $gray-900;
+        * {
+            fill: $gray-900;
+        }
+    }
+
+    &.btn-big {
+        padding: map-get($spacers, 5) map-get($spacers, 4);
+        font-size: 2em;
+    }
+    
+    &.btn-share {
+        padding: map-get($spacers, 4);
+        justify-content: left;
+        align-items: center;
+        text-align: left;
+        
+        svg {
+            margin-left: 25%;
+            margin-right: 2em;
+        }
+        
+        & + & {
+            margin-top: .5em;
+        }
+    }
+
+    &.btn-fluid {
+        width: 100%;
+        height: 100%;
+    }
+
+    &.btn-arrow {
+        border: none;
+        padding: map-get($spacers, 2) 0;
+        color: $interlucid-orange;
+
+        &::after {
+            content: '>';
+            margin-left: map-get($spacers, 2);
+            transition: margin .3s ease;
+        }
+
+        &:hover {
+            background: none;
+
+            &::after {
+                margin-left: map-get($spacers, 3);
+            }
+        }
+    }
+}
+
+.share-icon {
+    height: 4em;
+    width: 4em;
+}
