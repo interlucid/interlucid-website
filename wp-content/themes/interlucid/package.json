@@ -32,16 +32,16 @@
   },
   "homepage": "https://understrap.com",
   "dependencies": {
-    "@babel/polyfill": "^7.4.0",
+    "@babel/polyfill": "^7.4.4",
     "bootstrap": "4.3.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.3",
-    "@babel/core": "^7.4.0",
-    "@babel/preset-env": "^7.4.2",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
     "babel-preset-minify": "^0.5.0",
-    "node-sass": "^4.11.0",
-    "nodemon": "^1.18.10",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1",
     "npm-run-all": "^4.1.5",
     "terser": "^3.17.0"
   }
