@@ -22,7 +22,7 @@ get_header();
                 foreach($releases as $release):
                     $id = $release->ID;
             ?>
-                <div class="col-md-4">
+                <div class="col-sm-6 col-lg-4 mb-5 mb-md-0">
                     <a href="<?= get_permalink($release) ?>"><img class="img-fluid mb-3" src="<?= get_field('album_art', $release->ID)['url']; ?>" alt="<?= $release->post_title ?> album art"></a>
                     <h3 class="text-center"><a href="<?= get_permalink($release) ?>"><?= $release->post_title ?></a></h3>
                 </div>

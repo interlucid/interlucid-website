@@ -48,7 +48,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                             <a class="btn btn-big btn-fluid" href="/support-me/">Support me</a>
                         </div>
                         <div class="col-sm-6 col-lg-4">
-                            <a class="btn btn-big btn-fluid" href="/tour/">See me play</a>
+                            <a class="btn btn-big btn-fluid" href="/shows/">See me play</a>
                         </div>
                     </div>
                 </section>
