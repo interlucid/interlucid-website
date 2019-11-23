@@ -11,10 +11,13 @@ get_header();
     <section class="py-5">
         <h2 class="text-center mb-5">Become a patron</h2>
         <div class="row">
-            <div class="col-md-6">
-                <img class="img-fluid" src="http://localhost:8888/wp-content/uploads/patreon-page.png" alt="Patreon page">
+            <div class="col-lg-8">
+                <picture>
+                    <source srcset="/wp-content/uploads/patreon-page-mobile.jpeg" media="(max-width: 576px)">
+                    <img class="img-fluid" src="/wp-content/uploads/patreon-page.png" alt="Patreon page">
+                </picture>
             </div>
-            <div class="col-md-6 pt-3">
+            <div class="col-lg-4 pt-3">
                 <p>Patreon is a platform that helps fans support creators they love (like me).  You can be my patron, just like the old days.  Pledge as little as $1 a month (or more if you like) to show your support and have access to the following:</p>
                 <ul>
                     <li>Exclusive Discord server channels</li>

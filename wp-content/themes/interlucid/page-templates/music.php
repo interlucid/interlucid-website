@@ -9,25 +9,9 @@ get_header();
 
 <div class="container pt-6">
     <h1 class="mb-4 text-center">Music</h1>
-    <section class="py-5">
-        <h2 class="mb-5 text-center">Releases</h2>
-        <div class="row justify-content-center mb-5">
-            <?php
-                $releases = get_posts([
-                    'post_type' => 'music',
-                    'post_status' => 'publish',
-                    'posts_per_page' => -1
-                ]);
-    
-                foreach($releases as $release):
-                    $id = $release->ID;
-            ?>
-                <div class="col-sm-6 col-lg-4 mb-5 mb-md-0">
-                    <a href="<?= get_permalink($release) ?>"><img class="img-fluid mb-3" src="<?= get_field('album_art', $release->ID)['url']; ?>" alt="<?= $release->post_title ?> album art"></a>
-                    <h3 class="text-center"><a href="<?= get_permalink($release) ?>"><?= $release->post_title ?></a></h3>
-                </div>
-            <?php endforeach; ?>
-        </div>
+
+    <section class="pt-4 pb-6">
+        <?= get_hero_release_html(33); ?>
     </section>
 
     <section class="py-5">

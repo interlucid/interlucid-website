@@ -1,0 +1,310 @@
+0000.000 (0) Opened log file at time: Sat, 23 Nov 2019 02:38:34 +0000 on http://localhost:8888
+0000.001 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.20 WP: 5.2.2 PHP: 7.3.8 (apache2handler, Darwin Phoenix 18.5.0 Darwin Kernel Version 18.5.0: Mon Mar 11 20:40:32 PDT 2019; root:xnu-4903.251.3~3/RELEASE_X86_64 x86_64) MySQL: 5.7.26 WPLANG: en_US Server: Apache/2.2.34 (Unix) mod_wsgi/3.5 Python/2.7.13 PHP/7.3.8 mod_ssl/2.2.34 OpenSSL/1.0.2o DAV/2 mod_fastcgi/mod_fastcgi-SNAP-0910052141 mod_perl/2.0.10 Perl/v5.24.0 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 24.5M | 2M) multisite: N openssl: OpenSSL 1.0.2o  27 Mar 2018 mcrypt: N LANG:  ZipArchive::addFile: Y
+0000.002 (0) Free space on disk containing Updraft's temporary directory: 16462.4 MB
+0000.004 (0) Tasks: Backup files: 1 (schedule: daily) Backup DB:  (schedule: every2hours)
+0000.005 (0) Processed schedules. Tasks now: Backup files: 1 Backup DB: 
+0000.006 (0) Requesting semaphore lock (f) (apparently via scheduler: last_scheduled_action_called_at=1574400369, seconds_ago=76345)
+0000.008 (0) Set semaphore last lock (f) time to 2019-11-23 02:38:34
+0000.009 (0) Semaphore lock (f) complete
+0000.012 (0) Backup run: resumption=0, nonce=79cb77c1d14b, file_nonce=79cb77c1d14b begun at=1574476714 (0s ago), job type=backup
+0000.012 (0) Scheduling a resumption (1) after 300 seconds (1574477014) in case this run gets aborted
+0000.014 (0) Checking if we have a zip executable available
+0000.015 (0) Testing: /usr/bin/zip
+0000.026 (0) Output: zip warning: binziptest/test.zip not found or empty
+0000.028 (0) Output: adding: binziptest/subdir1/	(in=0) (out=0) (stored 0%)
+0000.029 (0) Output: adding: binziptest/subdir1/subdir2/	(in=0) (out=0) (stored 0%)
+0000.029 (0) Output: adding: binziptest/subdir1/subdir2/test.html	(in=131) (out=107) (deflated 18%)
+0000.030 (0) Output: total bytes=131, compressed=107 -> 18% savings
+0000.039 (0) Output: adding: binziptest/subdir1/subdir2/test2.html	(in=138) (out=113) (deflated 18%)
+0000.040 (0) Output: total bytes=269, compressed=220 -> 18% savings
+0000.042 (0) Working binary zip found: /usr/bin/zip
+0000.044 (0) Zip engine: found/will use a binary zip: /usr/bin/zip
+0000.045 (0) Creation of backups of directories: beginning
+0000.048 (0) Beginning creation of dump of plugins (split every: 400 MB)
+0000.242 (0) Total entities for the zip file: 440 directories, 2750 files (0 skipped as non-modified), 65.5 MB
+0000.248 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 100 files added (on-disk size: 0 KB)
+0000.253 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 200 files added (on-disk size: 0 KB)
+0000.257 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 25 MB added on this batch (25 MB, 2750 files batched, 279 (279) added so far); re-opening (prior size: 0 KB)
+0000.672 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: size is now: 23.90 MB
+0000.676 (0) A useful amount of data was added after this amount of zip processing: 1.2 s (normalised: 1.2 s, rate: 21869.8 KB/s)
+0000.677 (0) Performance is good - will increase the amount of data we attempt to batch (time=1.1706869602203, normalised_time=1.1705617521228, max_time=0.67626690864563, data points known=1, old_max_bytes=26214400, new_max_bytes=134368306)
+0000.680 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 300 files added (on-disk size: 24475 KB)
+0000.686 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 400 files added (on-disk size: 24475 KB)
+0000.692 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 500 files added (on-disk size: 24475 KB)
+0000.697 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 600 files added (on-disk size: 24475 KB)
+0000.703 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 700 files added (on-disk size: 24475 KB)
+0000.708 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (22.7 MB, 2750 files batched, 501 (780) added so far); re-opening (prior size: 24475 KB)
+0002.000 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: size is now: 30.20 MB
+0002.005 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 800 files added (on-disk size: 30947.3 KB)
+0002.010 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 900 files added (on-disk size: 30947.3 KB)
+0002.016 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 1000 files added (on-disk size: 30947.3 KB)
+0002.022 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 1100 files added (on-disk size: 30947.3 KB)
+0002.029 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 1200 files added (on-disk size: 30947.3 KB)
+0002.034 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.4 MB, 2750 files batched, 501 (1281) added so far); re-opening (prior size: 30947.3 KB)
+0002.493 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 1300 files added (on-disk size: 32277.8 KB)
+0002.499 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 1400 files added (on-disk size: 32277.8 KB)
+0002.504 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 1500 files added (on-disk size: 32277.8 KB)
+0002.510 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 1600 files added (on-disk size: 32277.8 KB)
+0002.516 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 1700 files added (on-disk size: 32277.8 KB)
+0002.521 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.8 MB, 2750 files batched, 501 (1782) added so far); re-opening (prior size: 32277.8 KB)
+0003.133 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 1800 files added (on-disk size: 33030 KB)
+0003.139 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 1900 files added (on-disk size: 33030 KB)
+0003.145 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 2000 files added (on-disk size: 33030 KB)
+0003.150 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 2100 files added (on-disk size: 33030 KB)
+0003.156 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 2200 files added (on-disk size: 33030 KB)
+0003.160 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.4 MB, 2750 files batched, 501 (2283) added so far); re-opening (prior size: 33030 KB)
+0003.772 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 2300 files added (on-disk size: 35638.5 KB)
+0003.779 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 2400 files added (on-disk size: 35638.5 KB)
+0003.785 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 2500 files added (on-disk size: 35638.5 KB)
+0003.791 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 2600 files added (on-disk size: 35638.5 KB)
+0003.797 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip.tmp: 2700 files added (on-disk size: 35638.5 KB)
+0005.068 (0) Created plugins zip (0) - 36655.2 KB in 5 s (7304.3 KB/s) (sha1: 188a86aeebe88420d1dbef209b92ac5cb488ef1a, sha256: 57b0e7343c8013dc9d47c5223410dabf20fcbdd435ef5e459dcf58d7d5554807)
+0005.073 (0) Beginning creation of dump of themes (split every: 400 MB)
+0005.842 (0) Total entities for the zip file: 1530 directories, 10673 files (0 skipped as non-modified), 48.4 MB
+0005.850 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 100 files added (on-disk size: 0 KB)
+0005.852 (0) File skipped due to unexpected name mismatch (locale: C): file=/Users/Brandon/Sites/Interlucid/site/wp-content/themes/interlucid/node_modules/jsesc/bin/jsesc add_as=themes/interlucid/node_modules/.bin/jsesc
+0005.856 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 200 files added (on-disk size: 0 KB)
+0005.862 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 300 files added (on-disk size: 0 KB)
+0005.869 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 400 files added (on-disk size: 0 KB)
+0005.874 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 500 files added (on-disk size: 0 KB)
+0005.875 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.5 MB, 10673 files batched, 501 (501) added so far); re-opening (prior size: 0 KB)
+0006.212 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: size is now: 1.00 MB
+0006.220 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 600 files added (on-disk size: 1054.9 KB)
+0006.227 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 700 files added (on-disk size: 1054.9 KB)
+0006.233 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 800 files added (on-disk size: 1054.9 KB)
+0006.238 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 900 files added (on-disk size: 1054.9 KB)
+0006.245 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 1000 files added (on-disk size: 1054.9 KB)
+0006.246 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.3 MB, 10673 files batched, 501 (1002) added so far); re-opening (prior size: 1054.9 KB)
+0006.455 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: size is now: 1.30 MB
+0006.463 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 1100 files added (on-disk size: 1321.6 KB)
+0006.468 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 1200 files added (on-disk size: 1321.6 KB)
+0006.470 (0) File skipped due to unexpected name mismatch (locale: C): file=/Users/Brandon/Sites/Interlucid/site/wp-content/themes/interlucid/node_modules/browserslist/cli.js add_as=themes/interlucid/node_modules/.bin/browserslist
+0006.475 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 1300 files added (on-disk size: 1321.6 KB)
+0006.481 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 1400 files added (on-disk size: 1321.6 KB)
+0006.488 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 1500 files added (on-disk size: 1321.6 KB)
+0006.489 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.7 MB, 10673 files batched, 501 (1503) added so far); re-opening (prior size: 1321.6 KB)
+0006.741 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: size is now: 1.80 MB
+0006.751 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 1600 files added (on-disk size: 1878.2 KB)
+0006.757 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 1700 files added (on-disk size: 1878.2 KB)
+0006.763 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 1800 files added (on-disk size: 1878.2 KB)
+0006.770 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 1900 files added (on-disk size: 1878.2 KB)
+0006.776 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 2000 files added (on-disk size: 1878.2 KB)
+0006.778 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (5.1 MB, 10673 files batched, 501 (2004) added so far); re-opening (prior size: 1878.2 KB)
+0007.190 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: size is now: 3.10 MB
+0007.199 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 2100 files added (on-disk size: 3220.5 KB)
+0007.205 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 2200 files added (on-disk size: 3220.5 KB)
+0007.227 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 2300 files added (on-disk size: 3220.5 KB)
+0007.234 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 2400 files added (on-disk size: 3220.5 KB)
+0007.239 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 2500 files added (on-disk size: 3220.5 KB)
+0007.241 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0 MB, 10673 files batched, 501 (2505) added so far); re-opening (prior size: 3220.5 KB)
+0007.436 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 2600 files added (on-disk size: 3387.6 KB)
+0007.442 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 2700 files added (on-disk size: 3387.6 KB)
+0007.449 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 2800 files added (on-disk size: 3387.6 KB)
+0007.455 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 2900 files added (on-disk size: 3387.6 KB)
+0007.461 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 3000 files added (on-disk size: 3387.6 KB)
+0007.462 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.2 MB, 10673 files batched, 501 (3006) added so far); re-opening (prior size: 3387.6 KB)
+0007.681 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 3100 files added (on-disk size: 3597.4 KB)
+0007.688 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 3200 files added (on-disk size: 3597.4 KB)
+0007.693 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 3300 files added (on-disk size: 3597.4 KB)
+0007.699 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 3400 files added (on-disk size: 3597.4 KB)
+0007.705 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 3500 files added (on-disk size: 3597.4 KB)
+0007.706 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.2 MB, 10673 files batched, 501 (3507) added so far); re-opening (prior size: 3597.4 KB)
+0007.915 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 3600 files added (on-disk size: 3828.7 KB)
+0007.921 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 3700 files added (on-disk size: 3828.7 KB)
+0007.927 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 3800 files added (on-disk size: 3828.7 KB)
+0007.933 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 3900 files added (on-disk size: 3828.7 KB)
+0007.940 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 4000 files added (on-disk size: 3828.7 KB)
+0007.941 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.7 MB, 10673 files batched, 501 (4008) added so far); re-opening (prior size: 3828.7 KB)
+0008.249 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: size is now: 4.60 MB
+0008.257 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 4100 files added (on-disk size: 4729.3 KB)
+0008.263 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 4200 files added (on-disk size: 4729.3 KB)
+0008.269 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 4300 files added (on-disk size: 4729.3 KB)
+0008.275 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 4400 files added (on-disk size: 4729.3 KB)
+0008.277 (0) File skipped due to unexpected name mismatch (locale: C): file=/Users/Brandon/Sites/Interlucid/site/wp-content/themes/interlucid/node_modules/regjsparser/node_modules/jsesc/bin/jsesc add_as=themes/interlucid/node_modules/regjsparser/node_modules/.bin/jsesc
+0008.282 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 4500 files added (on-disk size: 4729.3 KB)
+0008.284 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.4 MB, 10673 files batched, 501 (4509) added so far); re-opening (prior size: 4729.3 KB)
+0008.562 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 4600 files added (on-disk size: 5335.7 KB)
+0008.570 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 4700 files added (on-disk size: 5335.7 KB)
+0008.575 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 4800 files added (on-disk size: 5335.7 KB)
+0008.582 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 4900 files added (on-disk size: 5335.7 KB)
+0008.588 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 5000 files added (on-disk size: 5335.7 KB)
+0008.590 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2 MB, 10673 files batched, 501 (5010) added so far); re-opening (prior size: 5335.7 KB)
+0008.886 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 5100 files added (on-disk size: 5984.1 KB)
+0008.892 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 5200 files added (on-disk size: 5984.1 KB)
+0008.900 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 5300 files added (on-disk size: 5984.1 KB)
+0008.906 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 5400 files added (on-disk size: 5984.1 KB)
+0008.912 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 5500 files added (on-disk size: 5984.1 KB)
+0008.914 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.7 MB, 10673 files batched, 501 (5511) added so far); re-opening (prior size: 5984.1 KB)
+0009.168 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 5600 files added (on-disk size: 6376.2 KB)
+0009.181 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 5700 files added (on-disk size: 6376.2 KB)
+0009.192 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 5800 files added (on-disk size: 6376.2 KB)
+0009.206 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 5900 files added (on-disk size: 6376.2 KB)
+0009.217 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 6000 files added (on-disk size: 6376.2 KB)
+0009.220 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.3 MB, 10673 files batched, 501 (6012) added so far); re-opening (prior size: 6376.2 KB)
+0009.477 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 6100 files added (on-disk size: 6664 KB)
+0009.483 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 6200 files added (on-disk size: 6664 KB)
+0009.490 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 6300 files added (on-disk size: 6664 KB)
+0009.496 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 6400 files added (on-disk size: 6664 KB)
+0009.502 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 6500 files added (on-disk size: 6664 KB)
+0009.503 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.2 MB, 10673 files batched, 501 (6513) added so far); re-opening (prior size: 6664 KB)
+0009.737 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 6600 files added (on-disk size: 6924 KB)
+0009.743 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 6700 files added (on-disk size: 6924 KB)
+0009.749 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 6800 files added (on-disk size: 6924 KB)
+0009.755 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 6900 files added (on-disk size: 6924 KB)
+0009.760 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 7000 files added (on-disk size: 6924 KB)
+0009.762 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (4.3 MB, 10673 files batched, 501 (7014) added so far); re-opening (prior size: 6924 KB)
+0010.217 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 7100 files added (on-disk size: 8292.9 KB)
+0010.224 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 7200 files added (on-disk size: 8292.9 KB)
+0010.230 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 7300 files added (on-disk size: 8292.9 KB)
+0010.236 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 7400 files added (on-disk size: 8292.9 KB)
+0010.242 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 7500 files added (on-disk size: 8292.9 KB)
+0010.243 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (8.6 MB, 10673 files batched, 501 (7515) added so far); re-opening (prior size: 8292.9 KB)
+0010.890 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: size is now: 10.60 MB
+0010.898 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 7600 files added (on-disk size: 10814.8 KB)
+0010.904 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 7700 files added (on-disk size: 10814.8 KB)
+0010.910 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 7800 files added (on-disk size: 10814.8 KB)
+0010.915 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 7900 files added (on-disk size: 10814.8 KB)
+0010.921 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 8000 files added (on-disk size: 10814.8 KB)
+0010.923 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (6.8 MB, 10673 files batched, 501 (8016) added so far); re-opening (prior size: 10814.8 KB)
+0011.459 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 8100 files added (on-disk size: 12604.3 KB)
+0011.466 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 8200 files added (on-disk size: 12604.3 KB)
+0011.473 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 8300 files added (on-disk size: 12604.3 KB)
+0011.479 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 8400 files added (on-disk size: 12604.3 KB)
+0011.485 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 8500 files added (on-disk size: 12604.3 KB)
+0011.486 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (2.4 MB, 10673 files batched, 501 (8517) added so far); re-opening (prior size: 12604.3 KB)
+0011.840 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 8600 files added (on-disk size: 13370.7 KB)
+0011.846 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 8700 files added (on-disk size: 13370.7 KB)
+0011.853 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 8800 files added (on-disk size: 13370.7 KB)
+0011.859 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 8900 files added (on-disk size: 13370.7 KB)
+0011.864 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 9000 files added (on-disk size: 13370.7 KB)
+0011.866 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.7 MB, 10673 files batched, 501 (9018) added so far); re-opening (prior size: 13370.7 KB)
+0012.147 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 9100 files added (on-disk size: 13780.6 KB)
+0012.153 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 9200 files added (on-disk size: 13780.6 KB)
+0012.158 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 9300 files added (on-disk size: 13780.6 KB)
+0012.164 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 9400 files added (on-disk size: 13780.6 KB)
+0012.169 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 9500 files added (on-disk size: 13780.6 KB)
+0012.171 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.9 MB, 10673 files batched, 501 (9519) added so far); re-opening (prior size: 13780.6 KB)
+0012.742 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 9600 files added (on-disk size: 14488.3 KB)
+0012.751 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 9700 files added (on-disk size: 14488.3 KB)
+0012.761 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 9800 files added (on-disk size: 14488.3 KB)
+0012.770 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 9900 files added (on-disk size: 14488.3 KB)
+0012.776 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 10000 files added (on-disk size: 14488.3 KB)
+0012.778 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (0.8 MB, 10673 files batched, 501 (10020) added so far); re-opening (prior size: 14488.3 KB)
+0013.089 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 10100 files added (on-disk size: 14978.7 KB)
+0013.097 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 10200 files added (on-disk size: 14978.7 KB)
+0013.103 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 10300 files added (on-disk size: 14978.7 KB)
+0013.110 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 10400 files added (on-disk size: 14978.7 KB)
+0013.116 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 10500 files added (on-disk size: 14978.7 KB)
+0013.118 (0) Adding batch to zip file (UpdraftPlus_BinZip): over 500 files added on this batch (1.6 MB, 10673 files batched, 501 (10521) added so far); re-opening (prior size: 14978.7 KB)
+0013.457 (0) Zip: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip.tmp: 10600 files added (on-disk size: 15668.7 KB)
+0014.185 (0) Created themes zip (0) - 18193.4 KB in 9.1 s (1997.2 KB/s) (sha1: 6cb10cc66e557ed9d334f858eca3d1897e97da97, sha256: 91327fc3da3b1409818c57c5b51bcf3f274f96183525cfa4ac60f4bff1c5ed5a)
+0014.189 (0) Exclusion option setting (uploads): backup*,*backups,backwpup*,wp-clone,snapshots
+0014.190 (0) Looking for candidates to backup in: /Users/Brandon/Sites/Interlucid/site/wp-content/uploads
+0014.191 (0) finding files: discord-server-mobile.png: adding to list (1)
+0014.192 (0) finding files: unlimited-single-art-small.png: adding to list (2)
+0014.193 (0) finding files: .DS_Store: adding to list (3)
+0014.193 (0) finding files: homepage-background.png: adding to list (4)
+0014.194 (0) finding files: circle-logo.png: adding to list (5)
+0014.195 (0) finding files: 2019: adding to list (6)
+0014.196 (0) finding files: Conversion-to-Indifference-SMALL.png: adding to list (7)
+0014.196 (0) finding files: patreon-page-mobile.jpeg: adding to list (8)
+0014.197 (0) finding files: Self-Aware.png: adding to list (9)
+0014.198 (0) finding files: discord-server.png: adding to list (10)
+0014.198 (0) finding files: patreon-page.png: adding to list (11)
+0014.199 (0) finding files: name-logo.png: adding to list (12)
+0014.200 (0) Beginning creation of dump of uploads (split every: 400 MB)
+0014.207 (0) Total entities for the zip file: 4 directories, 11 files (0 skipped as non-modified), 5.6 MB
+0014.280 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-uploads.zip.tmp: size is now: 5.60 MB
+0014.425 (0) Created uploads zip (0) - 5769.7 KB in 0.2 s (25860 KB/s) (sha1: 5f6bd0ed045c37067f6ce599bbab5a5a68ad2c78, sha256: 23799760722e0fc7eaa2579a6f3172759dbb5179b1610d176f802fb6f80e7eb4)
+0014.429 (0) Beginning backup of other directories found in the content directory (index: 0)
+0014.430 (0) Exclusion option setting (others): upgrade,cache,updraft,backup*,*backups,mysql.sql,debug.log
+0014.431 (0) Looking for candidates to backup in: /Users/Brandon/Sites/Interlucid/site/wp-content
+0014.431 (0) finding files: upgrade: skipping: excluded by options
+0014.432 (0) finding files: .DS_Store: adding to list (1)
+0014.433 (0) finding files: index.php: adding to list (2)
+0014.433 (0) finding files: plugins: skipping: this is the plugins directory
+0014.434 (0) finding files: uploads: skipping: this is the uploads directory
+0014.435 (0) finding files: updraft: skipping: this is the updraft directory
+0014.436 (0) finding files: themes: skipping: this is the themes directory
+0014.440 (0) Total entities for the zip file: 0 directories, 2 files (0 skipped as non-modified), 0 MB
+0014.451 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-others.zip.tmp: size is now: 0.00 MB
+0014.457 (0) Created others zip (0) - 0.9 KB in 0 s (47 KB/s) (sha1: 339aa8177cc1ac8efc7cd184ecc34da8c63bfab8, sha256: 03a69edcb59d7df627d66ecc76bdc52b217c2ee041d79ca17f65247726777343)
+0014.463 (0) Saving backup status to database (elements: 8)
+0014.467 (0) No database backup (wp) - not part of this run
+0014.470 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip: plugins: This file has not yet been successfully uploaded: will queue
+0014.471 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip: themes: This file has not yet been successfully uploaded: will queue
+0014.471 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-uploads.zip: uploads: This file has not yet been successfully uploaded: will queue
+0014.472 (0) backup_2019-11-23-0238_Interlucid_79cb77c1d14b-others.zip: others: This file has not yet been successfully uploaded: will queue
+0014.473 (0) Saving backup history. Total backup size: 59.2 MB
+0014.477 (0) Requesting upload of the files that have not yet been successfully uploaded (4)
+0014.478 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0014.479 (0) No remote despatch: user chose no remote backup service
+0014.480 (0) Recording as successfully uploaded: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-plugins.zip
+0014.482 (0) Recording as successfully uploaded: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-themes.zip
+0014.484 (0) Recording as successfully uploaded: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-uploads.zip
+0014.485 (0) Recording as successfully uploaded: backup_2019-11-23-0238_Interlucid_79cb77c1d14b-others.zip
+0014.488 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=5, retain_db=5
+0014.490 (0) Number of backup sets in history: 11; groups (db): 1
+0014.490 (0) Examining (for databases) backup set with group_id=0, nonce=79cb77c1d14b, datestamp=1574476714 (Nov 23 2019 02:38:34)
+0014.491 (0) Examining (for databases) backup set with group_id=0, nonce=144f6892d44e, datestamp=1574476712 (Nov 23 2019 02:38:32)
+0014.491 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0014.492 (0) Examining (for databases) backup set with group_id=0, nonce=a55bc49cbd4c, datestamp=1574434115 (Nov 22 2019 14:48:35)
+0014.492 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0014.492 (0) Examining (for databases) backup set with group_id=0, nonce=5729d4341a53, datestamp=1574429621 (Nov 22 2019 13:33:41)
+0014.492 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0014.492 (0) Examining (for databases) backup set with group_id=0, nonce=44e9bb0e4012, datestamp=1574419715 (Nov 22 2019 10:48:35)
+0014.492 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0014.492 (0) Examining (for databases) backup set with group_id=0, nonce=170ea180ce55, datestamp=1574415059 (Nov 22 2019 09:30:59)
+0014.492 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0014.492 (0) Examining (for databases) backup set with group_id=0, nonce=7de60c48c45e, datestamp=1574406238 (Nov 22 2019 07:03:58)
+0014.492 (0) Examining (for databases) backup set with group_id=0, nonce=5252e4993400, datestamp=1574402137 (Nov 22 2019 05:55:37)
+0014.492 (0) Examining (for databases) backup set with group_id=0, nonce=5720fd2f1214, datestamp=1574400369 (Nov 22 2019 05:26:09)
+0014.492 (0) Examining (for databases) backup set with group_id=0, nonce=690730cbd050, datestamp=1574316537 (Nov 21 2019 06:08:57)
+0014.492 (0) Examining (for databases) backup set with group_id=0, nonce=eeec2b6471a5, datestamp=1574032585 (Nov 17 2019 23:16:25)
+0014.493 (0) Number of backup sets in history: 11; groups (files): 1
+0014.493 (0) Examining (for files) backup set with nonce=79cb77c1d14b, datestamp=1574476714 (Nov 23 2019 02:38:34)
+0014.493 (0) This backup set is the backup set just made, so will not be deleted.
+0014.494 (0) This backup set is the backup set just made, so will not be deleted.
+0014.494 (0) This backup set is the backup set just made, so will not be deleted.
+0014.494 (0) This backup set is the backup set just made, so will not be deleted.
+0014.494 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0014.495 (0) Examining (for files) backup set with nonce=144f6892d44e, datestamp=1574476712 (Nov 23 2019 02:38:32)
+0014.495 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0014.496 (0) Examining (for files) backup set with nonce=a55bc49cbd4c, datestamp=1574434115 (Nov 22 2019 14:48:35)
+0014.496 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0014.496 (0) Examining (for files) backup set with nonce=5729d4341a53, datestamp=1574429621 (Nov 22 2019 13:33:41)
+0014.496 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0014.496 (0) Examining (for files) backup set with nonce=44e9bb0e4012, datestamp=1574419715 (Nov 22 2019 10:48:35)
+0014.496 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0014.497 (0) Examining (for files) backup set with nonce=170ea180ce55, datestamp=1574415059 (Nov 22 2019 09:30:59)
+0014.497 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0014.497 (0) Examining (for files) backup set with nonce=7de60c48c45e, datestamp=1574406238 (Nov 22 2019 07:03:58)
+0014.497 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0014.497 (0) Examining (for files) backup set with nonce=5252e4993400, datestamp=1574402137 (Nov 22 2019 05:55:37)
+0014.497 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0014.498 (0) Examining (for files) backup set with nonce=5720fd2f1214, datestamp=1574400369 (Nov 22 2019 05:26:09)
+0014.498 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0014.498 (0) Examining (for files) backup set with nonce=690730cbd050, datestamp=1574316537 (Nov 21 2019 06:08:57)
+0014.498 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0014.498 (0) Examining (for files) backup set with nonce=eeec2b6471a5, datestamp=1574032585 (Nov 17 2019 23:16:25)
+0014.498 (0) plugins: over retain limit (5); will delete this file entity
+0014.498 (0) themes: over retain limit (5); will delete this file entity
+0014.498 (0) uploads: over retain limit (5); will delete this file entity
+0014.498 (0) others: over retain limit (5); will delete this file entity
+0014.498 (0) Delete file: backup_2019-11-17-2316_Interlucid_eeec2b6471a5-plugins.zip, service=none
+0014.499 (0) Deleting local copy (backup_2019-11-17-2316_Interlucid_eeec2b6471a5-plugins.zip)
+0014.500 (0) Delete file: backup_2019-11-17-2316_Interlucid_eeec2b6471a5-themes.zip, service=none
+0014.501 (0) Deleting local copy (backup_2019-11-17-2316_Interlucid_eeec2b6471a5-themes.zip)
+0014.502 (0) Delete file: backup_2019-11-17-2316_Interlucid_eeec2b6471a5-uploads.zip, service=none
+0014.503 (0) Deleting local copy (backup_2019-11-17-2316_Interlucid_eeec2b6471a5-uploads.zip)
+0014.505 (0) Delete file: backup_2019-11-17-2316_Interlucid_eeec2b6471a5-others.zip, service=none
+0014.505 (0) Deleting local copy (backup_2019-11-17-2316_Interlucid_eeec2b6471a5-others.zip)
+0014.508 (0) This backup set is now empty; will remove from history
+0014.509 (0) Deleting log file (log.eeec2b6471a5.txt)
+0014.509 (0) Retain: saving new backup history (sets now: 10) and finishing retain operation
+0014.513 (0) Resume backup (79cb77c1d14b, 0): finish run
+0014.515 (0) Decremented the semaphore (f) by 1
+0014.516 (0) Semaphore (f) unlocked
+0014.517 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0014.520 (0) No email will/can be sent - the user has not configured an email address.
+0014.520 (0) The backup apparently succeeded and is now complete

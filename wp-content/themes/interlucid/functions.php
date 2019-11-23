@@ -34,3 +34,16 @@ foreach ( $understrap_includes as $file ) {
 	}
 	require_once $filepath;
 }
+
+function get_hero_release_html($post_id) {
+    $title = get_the_title($post_id);
+    $image_path = get_field('image_path', $post_id);
+    $hyperfollow_link = get_field('hyperfollow_link', $post_id);
+    return <<<HTML
+<div class="text-center">
+    <h2 class="mb-4">Latest Release: "$title"</h2>
+    <a href="$hyperfollow_link" target="_blank"><img class="mb-4 img-fluid" src="$image_path" alt="<?= get_the_title(33) ?> Art"></a>
+    <a class="btn" href="$hyperfollow_link" target="_blank">Stream/Download "$title"</a>
+</div>
+HTML;
+}

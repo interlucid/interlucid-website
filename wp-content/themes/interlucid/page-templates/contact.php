@@ -12,10 +12,13 @@ get_header();
     <section class="py-5">
         <h2 class="text-center mb-4">Discord</h2>
         <div class="row">
-            <div class="col-md-6">
-                <img class="img-fluid" src="/wp-content/uploads/discord-server.png" alt="Discord Server screenshot">
+            <div class="col-lg-8">
+                <picture>
+                    <source srcset="/wp-content/uploads/discord-server-mobile.png" media="(max-width: 576px)">
+                    <img class="img-fluid" src="/wp-content/uploads/discord-server.png" alt="Discord Server screenshot">
+                </picture>
             </div>
-            <div class="col-md-6 pt-3">
+            <div class="col-lg-4 pt-3">
                 <p>Join the Discord server!  Discord is a team messaging and calling app and a great place talk with me as well as other fans and members of the community.</p>
                 <p>There are also Patreon exclusive channels on the Discord server where I post snippets of music I haven't release yet and such.</p>
                 <a class="btn btn-arrow" href="https://discord.gg/nvrRYXn" target="_blank">Discord Server</a>
@@ -68,12 +71,12 @@ get_header();
             </div>
             <div class="col-md-4 mb-4 mb-md-0">
                 <h3>Facebook</h3>
-                <p>I'll be honest, I rarely open Facebook anymore, even though I use Messenger daily.</p>
+                <p>I mostly use Facebook for events and Messenger.</p>
                 <p><a class="btn btn-arrow" href="https://www.facebook.com/interlucidnoise/" target="_blank">Facebook</a></p>
             </div>
             <div class="col-md-4">
                 <h3>Instagram</h3>
-                <p>If you really want to know the truth, I hate Instagram.  I have one, but I'll probably hire someone to post on it for me.</p>
+                <p>I don't love Instagram.  I have one, but I'll probably hire someone to post on it for me.</p>
                 <p><a class="btn btn-arrow" href="https://www.instagram.com/interlucid/" target="_blank">Instagram</a></p>
             </div>
         </div>
