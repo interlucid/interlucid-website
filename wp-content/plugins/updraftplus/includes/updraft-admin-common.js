@@ -138,8 +138,10 @@ function updraft_remote_storage_tab_activation(the_method){
  */
 function updraft_check_overduecrons() {
 	updraft_send_command('check_overdue_crons', null, function(response) {
-		if (response && response.hasOwnProperty('m')) {
-			jQuery('#updraft-insert-admin-warning').html(response.m);
+		if (response && response.hasOwnProperty('m') && Array.isArray(response.m)) {
+			for (var i in response.m) {
+				jQuery('#updraft-insert-admin-warning').append(response.m[i]);
+			}
 		}
 	}, { alert_on_error: false });
 }
@@ -273,7 +275,7 @@ function updraft_remote_storage_test(method, result_callback, instance_id) {
 		var value = null;
 		if ('checkbox' == input_type) {
 			value = jQuery(item).is(':checked') ? 1 : 0;
-		} else if ('text' == input_type || 'password' == input_type) {
+		} else if ('text' == input_type || 'password' == input_type || 'hidden' == input_type) {
 			value = jQuery(item).val();
 		} else {
 			console.log("UpdraftPlus: settings test input item with unrecognised type ("+input_type+") found");
@@ -337,12 +339,36 @@ function backupnow_whichtables_checked(onlythesetableentities){
 	var send_list = false;
 	jQuery('#backupnow_database_moreoptions input[type="checkbox"]').each(function(index) {
 		if (!jQuery(this).is(':checked')) { send_list = true; return; }
+		if (jQuery(this).is(':checked') && jQuery(this).data('non_wp_table')) { send_list = true; return; }
 	});
 
 	onlythesetableentities = jQuery("input[name^='updraft_include_tables_']").serializeArray();
 
 	if (send_list) {
 		return onlythesetableentities;
+	} else {
+		return true;
+	}
+}
+
+/**
+ * A method to get all the selected cloud service values from the backup now modal
+ *
+ * @param {string} only_these_cloud_services an empty string to append values to
+ *
+ * @return {string} a string that contains the values of all selected cloud service connections selected
+ */
+function backupnow_which_cloud_services_checked(only_these_cloud_services) {
+	var send_list = false;
+	jQuery('#backupnow_includecloud_moreoptions input[type="checkbox"]').each(function(index) {
+		if (!jQuery(this).is(':checked')) { send_list = true; return; }
+		if (jQuery(this).is(':checked') && jQuery(this).data('instance_disabled')) { send_list = true; return; }
+	});
+
+	only_these_cloud_services = jQuery("input[name^='updraft_include_remote_service_']").serializeArray();
+	
+	if (send_list) {
+		return only_these_cloud_services;
 	} else {
 		return true;
 	}
@@ -454,7 +480,7 @@ function updraft_backup_dialog_open(type) {
 		jQuery('#updraft-backupnow-modal .incremental-free-only').show();
 		type = 'new';
 	} else {
-		jQuery('#updraft-backupnow-modal .incremental-backups-only').hide();
+		jQuery('#updraft-backupnow-modal .incremental-backups-only, #updraft-backupnow-modal .incremental-free-only').hide();
 	}
 	
 	jQuery('#backupnow_includefiles_moreoptions').hide();
@@ -501,7 +527,7 @@ function update_file_entities_checkboxes(incremental, entities) {
 			if (name.substring(0, 16) != 'updraft_include_') { return; }
 			var entity = name.substring(16);
 			jQuery('#backupnow_files_updraft_include_' + entity).prop('disabled', false);
-			if (jQuery(this).is(':checked')) {
+			if (jQuery('#updraft_include_' + entity).is(':checked')) {
 				jQuery('#backupnow_files_updraft_include_' + entity).prop('checked', true);
 			}
 		});
@@ -657,6 +683,55 @@ var updraft_backups_selection = {};
 		} else {
 			$('#ud_massactions').show();
 		}
+	}
+
+	/**
+	 * Multiple range selection
+	 *
+	 * @param {HTMLDomElement|jQuery} el - row element
+	 */
+	updraft_backups_selection.selectAllInBetween = function(el) {
+		var idx_start = this.firstMultipleSelectionIndex, idx_end = el.rowIndex-1;
+		if (this.firstMultipleSelectionIndex > el.rowIndex-1) {
+			idx_start = el.rowIndex-1; idx_end = this.firstMultipleSelectionIndex;
+		}
+		for (i=idx_start; i<=idx_end; i++) {
+			this.select($('#updraft-navtab-backups-content .updraft_existing_backups .updraft_existing_backups_row').eq(i));
+		}
+	}
+
+	/**
+	 * Multiple range selection event handler that gets executed when hovering the mouse over the row of existing backups. This function highlights the rows with color
+	 */
+	updraft_backups_selection.hightlight_backup_rows = function() {
+		if ("undefined" === typeof updraft_backups_selection.firstMultipleSelectionIndex) return;
+		if (!$(this).hasClass('range-selection') && !$(this).hasClass('backuprowselected')) $(this).addClass('range-selection');
+		$(this).siblings().removeClass('range-selection');
+		if (updraft_backups_selection.firstMultipleSelectionIndex+1 > this.rowIndex) {
+			$(this).nextUntil('.updraft_existing_backups_row.range-selection-start').addClass('range-selection');
+		} else if (updraft_backups_selection.firstMultipleSelectionIndex+1 < this.rowIndex) {
+			$(this).prevUntil('.updraft_existing_backups_row.range-selection-start').addClass('range-selection');
+		}
+	}
+
+	/**
+	 * Multiple range selection event handler that gets executed when the user releases the ctrl+shift button, it also gets executed when the mouse pointer is moved out from the browser page
+	 * This function clears all the highlighted rows and removes hover and mouseleave event handlers
+	 */
+	updraft_backups_selection.unregister_highlight_mode = function() {
+		if ("undefined" === typeof updraft_backups_selection.firstMultipleSelectionIndex) return;
+		delete updraft_backups_selection.firstMultipleSelectionIndex;
+		$('#updraft-navtab-backups-content .updraft_existing_backups .updraft_existing_backups_row').removeClass('range-selection range-selection-start');
+		$('#updraft-navtab-backups-content').off('hover', '.updraft_existing_backups .updraft_existing_backups_row', this.hightlight_backup_rows);
+		$(document).off('mouseleave', this.unregister_highlight_mode);
+	}
+
+	/**
+	 * Register mouseleave and hover event handlers for highlighting purposes
+	 */
+	updraft_backups_selection.register_highlight_mode = function() {
+		$(document).on('mouseleave', updraft_backups_selection.unregister_highlight_mode);
+		$('#updraft-navtab-backups-content').on('hover', '.updraft_existing_backups .updraft_existing_backups_row', updraft_backups_selection.hightlight_backup_rows);
 	}
 })(jQuery);
 // @codingStandardsIgnoreEnd
@@ -913,28 +988,34 @@ updraft_updatehistory(0, 0);}, 30000);
  * Update the HTML for the 'existing backups' table; optionally, after local/remote re-scanning.
  * Nothing is returned; any update necessary is performed directly on the DOM.
  *
- * @param {Integer} rescan	   - first, re-scan the local storage (0 or 1)
- * @param {Integer} remotescan - first, re-scan the remote storage (you must also set rescan to 1 to use this)
- * @param {Integer} debug	   - if 1, then also request debugging information and log it to the console
+ * @param {Integer} rescan	     - first, re-scan the local storage (0 or 1)
+ * @param {Integer} remotescan   - first, re-scan the remote storage (you must also set rescan to 1 to use this)
+ * @param {Integer} debug	     - if 1, then also request debugging information and log it to the console
+ * @param {Integer} backup_count - the amount of backups we want to display
  */
-function updraft_updatehistory(rescan, remotescan, debug) {
+function updraft_updatehistory(rescan, remotescan, debug, backup_count) {
 
 	if ('undefined' != typeof updraft_restore_screen && updraft_restore_screen) return;
 
 	if ('undefined' === typeof debug) {
 		debug = jQuery('#updraft_debug_mode').is(':checked') ? 1 : 0;
 	}
-	
+
 	var unixtime = Math.round(new Date().getTime() / 1000);
 	
 	if (1 == rescan || 1 == remotescan) {
 		updraft_historytimer_notbefore = unixtime + 30;
 	} else {
-		if (unixtime < updraft_historytimer_notbefore) {
+		if (unixtime < updraft_historytimer_notbefore && 'undefined' === typeof backup_count) {
 			console.log("Update history skipped: "+unixtime.toString()+" < "+updraft_historytimer_notbefore.toString());
 			return;
 		}
 	}
+
+	if ('undefined' === typeof backup_count) {
+		backup_count = jQuery('#updraft-navtab-backups-content .updraft_existing_backups .updraft_existing_backups_row').length;
+	}
+	
 	
 	if (rescan == 1) {
 		if (remotescan == 1) {
@@ -950,7 +1031,8 @@ function updraft_updatehistory(rescan, remotescan, debug) {
 	
 	var data = {
 		operation: what_op,
-		debug: debug
+		debug: debug,
+		backup_count: backup_count,
 	}
 	
 	updraft_send_command('rescan', data, function(resp) {
@@ -1722,15 +1804,16 @@ function updraft_downloader_status_update(download_status, response_raw) {
 /**
  * Function that sets up a ajax call to start a backup
  *
- * @param {Integer} backupnow_nodb         Indicate whether the database should be backed up: valid values are 0, 1
- * @param {Integer} backupnow_nofiles      Indicate whether any files should be backed up: valid values are 0, 1
- * @param {Integer} backupnow_nocloud      Indicate whether the backup should be uploaded to cloud storage: valid values are 0, 1
- * @param {String}  onlythesefileentities  A csv list of file entities to be backed up
- * @param {String}  onlythesetableentities A csv list of table entities to be backed up
- * @param {Array}   extradata              any extra data to be added
- * @param {String}  label                  A optional label to be added to a backup
+ * @param {Integer} backupnow_nodb            Indicate whether the database should be backed up: valid values are 0, 1
+ * @param {Integer} backupnow_nofiles         Indicate whether any files should be backed up: valid values are 0, 1
+ * @param {Integer} backupnow_nocloud         Indicate whether the backup should be uploaded to cloud storage: valid values are 0, 1
+ * @param {String}  onlythesefileentities     A csv list of file entities to be backed up
+ * @param {String}  onlythesetableentities    A csv list of table entities to be backed up
+ * @param {Array}   extradata                 any extra data to be added
+ * @param {String}  label                     A optional label to be added to a backup
+ * @param {String}  only_these_cloud_services An array of remote sorage locations to be backed up to
  */
-function updraft_backupnow_go(backupnow_nodb, backupnow_nofiles, backupnow_nocloud, onlythesefileentities, extradata, label, onlythesetableentities) {
+function updraft_backupnow_go(backupnow_nodb, backupnow_nofiles, backupnow_nocloud, onlythesefileentities, extradata, label, onlythesetableentities, only_these_cloud_services) {
 
 	var params = {
 		backupnow_nodb: backupnow_nodb,
@@ -1746,6 +1829,10 @@ function updraft_backupnow_go(backupnow_nodb, backupnow_nofiles, backupnow_noclo
 
 	if ('' != onlythesetableentities) {
 		params.onlythesetableentities = onlythesetableentities;
+	}
+
+	if ('' != only_these_cloud_services) {
+		params.only_these_cloud_services = only_these_cloud_services;
 	}
 	
 	params.always_keep = (typeof extradata.always_keep !== 'undefined') ? extradata.always_keep : 0;
@@ -1884,8 +1971,9 @@ jQuery(document).ready(function($) {
 			}
 			
 			updraft_webdav_url = updraft_webdav_settings[instance_id]['webdav'] + updraft_webdav_settings[instance_id]['user'] + colon + updraft_webdav_settings[instance_id]['pass'] + host +encodeURIComponent(updraft_webdav_settings[instance_id]['host']) + colon_port + updraft_webdav_settings[instance_id]['port'] + slash + updraft_webdav_settings[instance_id]['path'];
-			
+			masked_webdav_url = updraft_webdav_settings[instance_id]['webdav'] + updraft_webdav_settings[instance_id]['user'] + colon + updraft_webdav_settings[instance_id]['pass'].replace(/./gi,'*') + host +encodeURIComponent(updraft_webdav_settings[instance_id]['host']) + colon_port + updraft_webdav_settings[instance_id]['port'] + slash + updraft_webdav_settings[instance_id]['path'];
 			$('#updraft_webdav_url_' + instance_id).val(updraft_webdav_url);
+			$('#updraft_webdav_masked_url_' + instance_id).val(masked_webdav_url);
 		}
 	});
 	
@@ -1920,7 +2008,28 @@ jQuery(document).ready(function($) {
 	
 	$('#updraft-navtab-backups-content').on('click', '.updraft_existing_backups .updraft_existing_backups_row', function(e) {
 		if (!e.ctrlKey && !e.metaKey) return;
-		updraft_backups_selection.toggle(this);
+		if (e.shiftKey) {
+			// it's multiple range selection, it requires the user to hold shift+ctrl buttons during the range selection, the initial and the new starting index is saved in firstMultipleSelectionIndex variable
+			if ("undefined" == typeof updraft_backups_selection.firstMultipleSelectionIndex) {
+				// if all the above conditions are fulfilled then we need to set up the keyup event handler only for range selection operation. By doing it, we also ignore the Apple Command (metaKey) keycode checking which varies among the browser https://unixpapa.com/js/key.html
+				$(document).on('keyup.MultipleSelection', function(e) {
+					// multiple range selection operation requires the user to hold ctrl/cmd + shift buttons all the time during the selections, the range selection operation will be canceled if the user releases one of the held buttons (shitf or ctrl/cmd) and if that happens the highlight mode will stop working
+					updraft_backups_selection.unregister_highlight_mode();
+					// once this event handler has been triggered and the highlight mode has been turned off, this event handler needs to be removed by using its namespace .MultipleSelection
+					$(document).off('.MultipleSelection');
+				});
+				updraft_backups_selection.select(this);
+				$(this).addClass('range-selection-start');
+				updraft_backups_selection.register_highlight_mode();
+			} else {
+				updraft_backups_selection.selectAllInBetween(this);
+				jQuery('#updraft-navtab-backups-content .updraft_existing_backups .updraft_existing_backups_row').removeClass('range-selection');
+			}
+			// set the new starting index to the ending range index
+			updraft_backups_selection.firstMultipleSelectionIndex = this.rowIndex - 1;
+		} else {
+			updraft_backups_selection.toggle(this);
+		}
 	});
 
 	updraft_backups_selection.checkSelectionStatus();
@@ -2086,6 +2195,34 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+	$('#updraft-navtab-migrate-content').on('change', '.updraft_migrate_widget_module_content #updraftplus_clone_backup_options', function() {
+
+		// reset the package list
+		$('#updraft-navtab-migrate-content .updraft_migrate_widget_module_content #updraftplus_clone_package_options > option').each(function() {
+			var value = $(this).val();
+			if ('starter' == value) $('#updraft-navtab-migrate-content .updraft_migrate_widget_module_content #updraftplus_clone_package_options  option[value="'+value+'"]').prop('selected', true);
+			$('#updraft-navtab-migrate-content .updraft_migrate_widget_module_content #updraftplus_clone_package_options  option[value="'+value+'"]').prop("disabled", false);
+		});
+		
+		var clone_backup_select = $(this).find('option:selected');
+
+		if ('current' == $(clone_backup_select).data('nonce') || 'wp_only' == $(clone_backup_select).data('nonce')) return;
+		
+		var total_size = $(clone_backup_select).data('size');
+
+		// Disable packages that are to small for this backup set, then set the first available package as the selected option
+		$('#updraft-navtab-migrate-content .updraft_migrate_widget_module_content #updraftplus_clone_package_options > option').each(function() {
+			var size = $(this).data('size');
+			var value = $(this).val();
+			if (total_size >= size) {
+				$('#updraft-navtab-migrate-content .updraft_migrate_widget_module_content #updraftplus_clone_package_options  option[value="'+value+'"]').prop("disabled", true);
+			} else {
+				$('#updraft-navtab-migrate-content .updraft_migrate_widget_module_content #updraftplus_clone_package_options  option[value="'+value+'"]').prop('selected', true);
+				return false;
+			}
+		});
+	});
+
 	$('#updraft-navtab-migrate-content').on('click', '.updraft_migrate_widget_module_content #updraft_migrate_createclone', function (e) {
 		e.preventDefault();
 
@@ -2098,6 +2235,7 @@ jQuery(document).ready(function($) {
 		var php_version = $('#updraft-navtab-migrate-content .updraft_migrate_widget_module_content #updraftplus_clone_php_options').val();
 		var wp_version = $('#updraft-navtab-migrate-content .updraft_migrate_widget_module_content #updraftplus_clone_wp_options').val();
 		var region = $('#updraft-navtab-migrate-content .updraft_migrate_widget_module_content #updraftplus_clone_region_options').val();
+		var package = $('#updraft-navtab-migrate-content .updraft_migrate_widget_module_content #updraftplus_clone_package_options').val();
 		var updraftclone_branch = $('#updraft-navtab-migrate-content .updraft_migrate_widget_module_content #updraftplus_clone_updraftclone_branch').val();
 		var updraftplus_branch = $('#updraft-navtab-migrate-content .updraft_migrate_widget_module_content #updraftplus_clone_updraftplus_branch').val();
 		var admin_only = $('.updraftplus_clone_admin_login_options').is(':checked');
@@ -2119,6 +2257,7 @@ jQuery(document).ready(function($) {
 					php_version: php_version,
 					wp_version: wp_version,
 					region: region,
+					package: package,
 					admin_only: admin_only,
 					updraftclone_branch: ('undefined' === typeof updraftclone_branch) ? '' : updraftclone_branch,
 					updraftplus_branch: ('undefined' === typeof updraftplus_branch) ? '' : updraftplus_branch
@@ -2669,8 +2808,10 @@ jQuery(document).ready(function($) {
 	function add_new_instance(method) {
 		var template = Handlebars.compile(updraftlion.remote_storage_templates[method]);
 		var context = updraftlion.remote_storage_options[method]['default'];
+		var method_name = updraftlion.remote_storage_methods[method];
 		context['instance_id'] = 's-' + generate_instance_id(32);
 		context['instance_enabled'] = 1;
+		context['instance_label'] = method_name + ' (' + (jQuery('.' + method + '_updraft_remote_storage_border').length + 1) + ')';
 		var html = template(context);
 		jQuery(html).hide().insertAfter('.' + method + '_add_instance_container:first').show('slow');
 	}
@@ -2738,6 +2879,11 @@ jQuery(document).ready(function($) {
 	$('#backupnow_database_showmoreoptions').click(function(e) {
 		e.preventDefault();
 		$('#backupnow_database_moreoptions').toggle();
+	});
+
+	$('#updraft-backupnow-modal').on('click', '#backupnow_includecloud_showmoreoptions', function(e) {
+		e.preventDefault();
+		$('#backupnow_includecloud_moreoptions').toggle();
 	});
 	
 	$('#updraft-navtab-backups-content').on('click', 'a.updraft_diskspaceused_update',function(e) {
@@ -3058,6 +3204,7 @@ jQuery(document).ready(function($) {
 		var remote_deleted = backup_remote;
 		var sets_deleted = backup_sets;
 		var timestamps = jQuery('#updraft_delete_timestamp').val().split(',');
+		var error_log_prompt = '';
 		
 		var form_data = jQuery('#updraft_delete_form').serializeArray();
 		var data = {};
@@ -3136,8 +3283,12 @@ jQuery(document).ready(function($) {
 				local_deleted = local_deleted + resp.backup_local;
 				remote_deleted = remote_deleted + resp.backup_remote;
 				sets_deleted = sets_deleted + resp.backup_sets;
+				if ('' != resp.error_messages) {
+					error_log_prompt = updraftlion.delete_error_log_prompt;
+				}
+					
 				setTimeout(function() {
-					alert(resp.set_message + " " + sets_deleted + "\n" + resp.local_message + " " + local_deleted + "\n" + resp.remote_message + " " + remote_deleted);
+					alert(resp.set_message + " " + sets_deleted + "\n" + resp.local_message + " " + local_deleted + "\n" + resp.remote_message + " " + remote_deleted + "\n\n" + resp.error_messages + "\n" + error_log_prompt);
 				}, 900);
 			}
 		});
@@ -3190,6 +3341,7 @@ jQuery(document).ready(function($) {
 		process_next_action: function() {
 			var anyselected = 0;
 			var moreselected = 0;
+			var dbselected = 0;
 			var whichselected = [];
 			// Make a list of what files we want
 			var already_added_wpcore = 0;
@@ -3200,6 +3352,7 @@ jQuery(document).ready(function($) {
 					var howmany = $(y).data('howmany');
 					var type = $(y).val();
 					if ('more' == type) moreselected = 1;
+					if ('db' == type) dbselected = 1;
 					if (1 == meta_foreign || (2 == meta_foreign && 'db' != type)) {
 						if ('wpcore' != type) {
 							howmany = $('#updraft_restore_form #updraft_restore_wpcore').data('howmany');
@@ -3303,6 +3456,21 @@ jQuery(document).ready(function($) {
 						}
 					});
 
+					if (1 == dbselected) {
+						
+						anyselected = 0;
+					
+						jQuery('input[name="updraft_restore_table_options[]"').each(function (x, y) {
+							if (jQuery(y).is(':checked') && !jQuery(y).is(':disabled')) anyselected = 1;
+						});
+						
+						if (0 == anyselected) {
+							alert(updraftlion.youdidnotselectany);
+							jQuery('.updraft-restore--next-step, .updraft-restore--cancel').prop('disabled', false);
+							return;
+						}
+					}
+
 					if (1 == moreselected) {
 					
 						anyselected = 0;
@@ -3359,7 +3527,7 @@ jQuery(document).ready(function($) {
 
 		if ('' == onlythesetableentities && 0 == backupnow_nodb) {
 			alert(updraftlion.notableschosen);
-			jQuery('#backupnow_includefiles_moreoptions').show();
+			jQuery('#backupnow_database_moreoptions').show();
 			return;
 		}
 
@@ -3373,6 +3541,18 @@ jQuery(document).ready(function($) {
 			alert(updraftlion.nofileschosen);
 			jQuery('#backupnow_includefiles_moreoptions').show();
 			return;
+		}
+
+		var only_these_cloud_services = backupnow_which_cloud_services_checked('');
+
+		if ('' == only_these_cloud_services && 0 == backupnow_nocloud) {
+			alert(updraftlion.nocloudserviceschosen);
+			jQuery('#backupnow_includecloud_moreoptions').show();
+			return;
+		}
+
+		if (typeof only_these_cloud_services === 'boolean') {
+			only_these_cloud_services = null;
 		}
 		
 		if (backupnow_nodb && backupnow_nofiles) {
@@ -3388,7 +3568,7 @@ jQuery(document).ready(function($) {
 			});
 		}, 1700);
 	
-		updraft_backupnow_go(backupnow_nodb, backupnow_nofiles, backupnow_nocloud, onlythesefileentities, {always_keep: always_keep, incremental: incremental}, jQuery('#backupnow_label').val(), onlythesetableentities);
+		updraft_backupnow_go(backupnow_nodb, backupnow_nofiles, backupnow_nocloud, onlythesefileentities, {always_keep: always_keep, incremental: incremental}, jQuery('#backupnow_label').val(), onlythesetableentities, only_these_cloud_services);
 	};
 	backupnow_modal_buttons[updraftlion.cancel] = function() {
 	jQuery(this).dialog("close"); };
@@ -4004,6 +4184,17 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+	jQuery('#updraft-navtab-backups-content .updraft_existing_backups').on('click', '.updraft-load-more-backups', function (e) {
+		e.preventDefault();
+		var backup_count = parseInt(jQuery('#updraft-navtab-backups-content .updraft_existing_backups .updraft_existing_backups_row').length) + parseInt(updraftlion.existing_backups_limit);
+		updraft_updatehistory(0, 0, 0, backup_count);
+	});
+
+	jQuery('#updraft-navtab-backups-content .updraft_existing_backups').on('click', '.updraft-load-all-backups', function (e) {
+		e.preventDefault();
+		updraft_updatehistory(0, 0, 0, 9999999);
+	});
+
 	/**
 	 * Opens the dialog box for confirmation of where to upload the backup
 	 *
@@ -4353,6 +4544,26 @@ jQuery(document).ready(function($) {
 		}
 	});
 
+	/*
+		* Handlebars helper function to replace all password chars into asterisk char
+		*
+		* @param {string} password Required. The plain-text password
+		*
+		* @return {string}
+	*/
+	Handlebars.registerHelper('maskPassword', function(password) {
+		return password.replace(/./gi,'*');
+	});
+
+	/*
+		 * Handlebars helper function that wraps javascript encodeURIComponent so that it could encode the following characters: , / ? : @ & = + $ #
+		 *
+		 * @param {string} uri Required. The URI to be encoded
+	 */
+	Handlebars.registerHelper('encodeURIComponent', function(uri) {
+		return encodeURIComponent(uri);
+	});
+
 	// Add remote methods html using handlebarjs
 	if ($('#remote-storage-holder').length) {
 		var html = '';
@@ -4360,15 +4571,26 @@ jQuery(document).ready(function($) {
 			if ('undefined' != typeof updraftlion.remote_storage_options[method] && 1 < Object.keys(updraftlion.remote_storage_options[method]).length) {
 				var template = Handlebars.compile(updraftlion.remote_storage_templates[method]);
 				var first_instance = true;
+				var instance_count = 1;
 				for (var instance_id in updraftlion.remote_storage_options[method]) {
 					if ('default' === instance_id) continue;
+					
 					var context = updraftlion.remote_storage_options[method][instance_id];
 					context['first_instance'] = first_instance;
 					if ('undefined' == typeof context['instance_enabled']) {
 						context['instance_enabled'] = 1;
 					}
+					if ('undefined' == typeof context['instance_label'] || '' == context['instance_label']) {
+						var method_name = updraftlion.remote_storage_methods[method];
+						var instance_label = ' (' + instance_count + ')';
+						if (1 == instance_count) {
+							instance_label = '';
+						}
+						context['instance_label'] = method_name + instance_label;
+					}
 					html += template(context);
 					first_instance = false;
+					instance_count++;
 				}
 			} else {
 				html += updraftlion.remote_storage_templates[method];
@@ -4719,6 +4941,11 @@ jQuery(document).ready(function($) {
 				}
 			});
 		}
+	});
+
+	jQuery('#updraft-restore-modal').on('click', '#updraftplus_restore_tables_showmoreoptions', function(e) {
+		e.preventDefault();
+		jQuery('.updraftplus_restore_tables_options_container').toggle();
 	});
 
 
@@ -5215,8 +5442,9 @@ function updraft_process_status_check(resp, response_raw, original_parameters) {
 					original_parameters.thisjobonly = autobackup_nonce;
 					console.log('UpdraftPlus: the start of the requested backup job has been detected; id: '+autobackup_nonce);
 				}
-			} else if (updraft_inpage_hasbegun == 1 && jQuery('#updraft-jobid-'+original_parameters.thisjobonly+'.updraft_finished').length) {
-				// This block used to be a straightforward 'if'... switching to 'else if' ensures that it cannot fire on the same run. (If the backup hasn't started, it may be detected as finished before to it began, on an overloaded server if there's a race).
+			}
+
+			if (updraft_inpage_hasbegun == 1 && jQuery('#updraft-jobid-'+original_parameters.thisjobonly+'.updraft_finished').length) {
 				// Don't reset to 0 - this will cause the 'began' event to be detected again
 				updraft_inpage_hasbegun = 2;
 
