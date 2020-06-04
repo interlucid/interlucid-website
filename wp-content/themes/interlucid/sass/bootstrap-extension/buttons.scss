@@ -8,6 +8,8 @@
     align-items: center;
     justify-content: center;
     font-size: 1.2em;
+    line-height: 1;
+    padding: map-get($spacers, 3) map-get($spacers, 4);
 
     &:hover {
         background-color: $gray-100;
@@ -35,6 +37,14 @@
         
         & + & {
             margin-top: .5em;
+        }
+    }
+
+    &.btn-share-stretch {
+        svg {
+            @include media-breakpoint-up(md) {
+                margin-left: 40%;
+            }
         }
     }
 

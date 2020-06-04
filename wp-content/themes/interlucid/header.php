@@ -70,7 +70,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <?php if ( is_front_page() && is_home() ) : ?>
         <?php // get_template_part( 'global-templates/hero' ); ?>
-        <div class="hero-image" style="background-image: url('/wp-content/uploads/homepage-background.png');">
+        <div class="hero-image" style="background-image: url('/wp-content/uploads/cover-2020-05-wide.png');">
 
         </div>
     <?php endif; ?>

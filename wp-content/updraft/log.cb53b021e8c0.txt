@@ -1,0 +1,148 @@
+0000.001 (0) Opened log file at time: Wed, 03 Jun 2020 22:57:25 +0000 on http://localhost
+0000.007 (0) UpdraftPlus WordPress backup plugin (https://updraftplus.com): 1.16.25 WP: 5.4.1 PHP: 7.3.12 (apache2handler, Windows NT BRANDON-GAMING- 10.0 build 17134 (Windows 10) AMD64) MySQL: 10.4.10-MariaDB WPLANG: en_US Server: Apache/2.4.41 (Win64) PHP/7.3.12 safe_mode: 0 max_execution_time: 900 memory_limit: 256M (used: 4.7M | 2M) multisite: N openssl: OpenSSL 1.1.1d  10 Sep 2019 mcrypt: N LANG:  ZipArchive::addFile: Y
+0000.012 (0) Free space on disk containing Updraft's temporary directory: 77199 MB
+0000.026 (0) Tasks: Backup files:  (schedule: daily) Backup DB: 1 (schedule: every2hours)
+0000.030 (0) Processed schedules. Tasks now: Backup files:  Backup DB: 1
+0000.039 (0) Requesting semaphore lock (d) (apparently via scheduler: last_scheduled_action_called_at=1591217332, seconds_ago=7713)
+0000.050 (0) Set semaphore last lock (d) time to 2020-06-03 22:57:25
+0000.054 (0) Semaphore lock (d) complete
+0000.066 (0) Backup run: resumption=0, nonce=cb53b021e8c0, file_nonce=cb53b021e8c0 begun at=1591225045 (0s ago), job type=backup
+0000.072 (0) Scheduling a resumption (1) after 300 seconds (1591225345) in case this run gets aborted
+0000.079 (0) This backup run is not intended for files - skipping
+0000.082 (0) Beginning creation of database dump (WordPress DB)
+0000.111 (0) Table wp_options: Total expected rows (approximate): 221
+0000.141 (0) Table wp_options: Total rows added: 217 in 0.03 seconds
+0000.150 (0) Table wp_options: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_options.table.gz - 21.1 KB)
+0000.162 (0) Table wp_users: Total expected rows (approximate): 0
+0000.180 (0) Table wp_users: Total rows added: 1 in 0.01 seconds
+0000.187 (0) Table wp_users: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_users.table.gz - 0.6 KB)
+0000.197 (0) Table wp_usermeta: Total expected rows (approximate): 40
+0000.211 (0) Table wp_usermeta: Total rows added: 40 in 0.01 seconds
+0000.219 (0) Table wp_usermeta: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_usermeta.table.gz - 1.3 KB)
+0000.231 (0) Table wp_commentmeta: Total expected rows (approximate): 0
+0000.247 (0) Table wp_commentmeta: Total rows added: 0 in 0.01 seconds
+0000.260 (0) Table wp_commentmeta: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_commentmeta.table.gz - 0.4 KB)
+0000.271 (0) Table wp_comments: Total expected rows (approximate): 0
+0000.290 (0) Table wp_comments: Total rows added: 1 in 0.02 seconds
+0000.297 (0) Table wp_comments: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_comments.table.gz - 0.7 KB)
+0000.308 (0) Table wp_links: Total expected rows (approximate): 0
+0000.333 (0) Table wp_links: Total rows added: 0 in 0.02 seconds
+0000.343 (0) Table wp_links: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_links.table.gz - 0.4 KB)
+0000.354 (0) Table wp_postmeta: Total expected rows (approximate): 115
+0000.370 (0) Table wp_postmeta: Total rows added: 115 in 0.01 seconds
+0000.379 (0) Table wp_postmeta: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_postmeta.table.gz - 1.4 KB)
+0000.389 (0) Table wp_posts: Total expected rows (approximate): 29
+0000.408 (0) Table wp_posts: Total rows added: 29 in 0.02 seconds
+0000.416 (0) Table wp_posts: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_posts.table.gz - 2.1 KB)
+0000.426 (0) Table wp_term_relationships: Total expected rows (approximate): 9
+0000.447 (0) Table wp_term_relationships: Total rows added: 9 in 0.02 seconds
+0000.458 (0) Table wp_term_relationships: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_term_relationships.table.gz - 0.4 KB)
+0000.468 (0) Table wp_term_taxonomy: Total expected rows (approximate): 2
+0000.485 (0) Table wp_term_taxonomy: Total rows added: 2 in 0.01 seconds
+0000.492 (0) Table wp_term_taxonomy: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_term_taxonomy.table.gz - 0.4 KB)
+0000.501 (0) Table wp_termmeta: Total expected rows (approximate): 0
+0000.514 (0) Table wp_termmeta: Total rows added: 0 in 0.01 seconds
+0000.521 (0) Table wp_termmeta: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_termmeta.table.gz - 0.4 KB)
+0000.531 (0) Table wp_terms: Total expected rows (approximate): 2
+0000.544 (0) Table wp_terms: Total rows added: 2 in 0.01 seconds
+0000.551 (0) Table wp_terms: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_terms.table.gz - 0.4 KB)
+0000.561 (0) Table wp_yoast_seo_links: Total expected rows (approximate): 0
+0000.577 (0) Table wp_yoast_seo_links: Total rows added: 0 in 0.01 seconds
+0000.585 (0) Table wp_yoast_seo_links: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_yoast_seo_links.table.gz - 0.4 KB)
+0000.596 (0) Table wp_yoast_seo_meta: Total expected rows (approximate): 15
+0000.621 (0) Table wp_yoast_seo_meta: Total rows added: 15 in 0.02 seconds
+0000.628 (0) Table wp_yoast_seo_meta: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_yoast_seo_meta.table.gz - 0.4 KB)
+0000.639 (0) Table wp_simply_static_pages: Total expected rows (approximate): 21
+0000.654 (0) Table wp_simply_static_pages: Total rows added: 21 in 0.01 seconds
+0000.662 (0) Table wp_simply_static_pages: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_simply_static_pages.table.gz - 1.3 KB)
+0000.672 (0) Table wp_yoast_indexable: Total expected rows (approximate): 18
+0000.693 (0) Table wp_yoast_indexable: Total rows added: 18 in 0.02 seconds
+0000.711 (0) Table wp_yoast_indexable: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_yoast_indexable.table.gz - 2 KB)
+0000.721 (0) Table wp_yoast_indexable_hierarchy: Total expected rows (approximate): 0
+0000.734 (0) Table wp_yoast_indexable_hierarchy: Total rows added: 0 in 0.01 seconds
+0000.742 (0) Table wp_yoast_indexable_hierarchy: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_yoast_indexable_hierarchy.table.gz - 0.3 KB)
+0000.752 (0) Table wp_yoast_migrations: Total expected rows (approximate): 13
+0000.780 (0) Table wp_yoast_migrations: Total rows added: 13 in 0.02 seconds
+0000.789 (0) Table wp_yoast_migrations: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_yoast_migrations.table.gz - 0.5 KB)
+0000.799 (0) Table wp_yoast_primary_term: Total expected rows (approximate): 0
+0000.817 (0) Table wp_yoast_primary_term: Total rows added: 0 in 0.02 seconds
+0000.826 (0) Table wp_yoast_primary_term: finishing file (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_yoast_primary_term.table.gz - 0.4 KB)
+0000.835 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_options.table.gz (1/19): adding to final database dump
+0000.842 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_users.table.gz (2/19): adding to final database dump
+0000.845 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_usermeta.table.gz (3/19): adding to final database dump
+0000.848 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_commentmeta.table.gz (4/19): adding to final database dump
+0000.851 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_comments.table.gz (5/19): adding to final database dump
+0000.854 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_links.table.gz (6/19): adding to final database dump
+0000.857 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_postmeta.table.gz (7/19): adding to final database dump
+0000.861 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_posts.table.gz (8/19): adding to final database dump
+0000.864 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_term_relationships.table.gz (9/19): adding to final database dump
+0000.866 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_term_taxonomy.table.gz (10/19): adding to final database dump
+0000.869 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_termmeta.table.gz (11/19): adding to final database dump
+0000.873 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_terms.table.gz (12/19): adding to final database dump
+0000.876 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_yoast_seo_links.table.gz (13/19): adding to final database dump
+0000.878 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_yoast_seo_meta.table.gz (14/19): adding to final database dump
+0000.881 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_simply_static_pages.table.gz (15/19): adding to final database dump
+0000.884 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_yoast_indexable.table.gz (16/19): adding to final database dump
+0000.886 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_yoast_indexable_hierarchy.table.gz (17/19): adding to final database dump
+0000.890 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_yoast_migrations.table.gz (18/19): adding to final database dump
+0000.893 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db-table-wp_yoast_primary_term.table.gz (19/19): adding to final database dump
+0000.915 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db.gz: finished writing out complete database file (16 KB)
+0000.936 (0) Total database tables backed up: 19 (backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db.gz, size: 30356, sha1: f0bd60b487ca861b05fbcd5eb198a7381307c4f8, sha256: d5a092ceea980e75caa862ac9d923e0fa6cc434f18c4b7b471535928debe7a4c)
+0000.951 (0) backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db.gz: db: This file has not yet been successfully uploaded: will queue
+0000.954 (0) Saving backup history. Total backup size: 29.6 KB
+0000.962 (0) Requesting upload of the files that have not yet been successfully uploaded (1)
+0000.973 (0) Cloud backup selection (1/1): none with instance (1/1) (last)
+0000.976 (0) No remote despatch: user chose no remote backup service
+0000.979 (0) Recording as successfully uploaded: backup_2020-06-03-2257_Interlucid_cb53b021e8c0-db.gz
+0000.987 (0) Retain: beginning examination of existing backup sets; user setting: retain_files=5, retain_db=5
+0000.990 (0) Number of backup sets in history: 11; groups (db): 1
+0000.993 (0) Examining (for databases) backup set with group_id=0, nonce=cb53b021e8c0, datestamp=1591225045 (Jun 03 2020 22:57:25)
+0000.995 (0) This backup set is the backup set just made, so will not be deleted.
+0000.996 (0) Examining (for databases) backup set with group_id=0, nonce=e94186bc273d, datestamp=1591217332 (Jun 03 2020 20:48:52)
+0000.996 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0000.998 (0) Examining (for databases) backup set with group_id=0, nonce=fc4d2c953682, datestamp=1591211534 (Jun 03 2020 19:12:14)
+0000.998 (0) Examining (for databases) backup set with group_id=0, nonce=521f6720e5a0, datestamp=1591211531 (Jun 03 2020 19:12:11)
+0000.998 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0000.999 (0) Examining (for databases) backup set with group_id=0, nonce=11ab4b19a4cc, datestamp=1591196488 (Jun 03 2020 15:01:28)
+0000.999 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0000.999 (0) Examining (for databases) backup set with group_id=0, nonce=cf4d5871a88a, datestamp=1591159794 (Jun 03 2020 04:49:54)
+0000.999 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0000.999 (0) Examining (for databases) backup set with group_id=0, nonce=92aa0fb46629, datestamp=1591155681 (Jun 03 2020 03:41:21)
+0000.999 (0) 1591155681: db: this set includes a database (backup_2020-06-03-0341_Interlucid_92aa0fb46629-db.gz); db count is now 5
+0000.999 (0) 1591155681: db: over retain limit (5); will delete this database
+0000.999 (0) Delete file: backup_2020-06-03-0341_Interlucid_92aa0fb46629-db.gz, service=none
+0001.002 (0) Deleting local copy (backup_2020-06-03-0341_Interlucid_92aa0fb46629-db.gz)
+0001.008 (0) This backup set is now empty; will remove from history
+0001.011 (0) Deleting log file (log.92aa0fb46629.txt)
+0001.014 (0) Examining (for databases) backup set with group_id=0, nonce=bbc675060e5d, datestamp=1591155622 (Jun 03 2020 03:40:22)
+0001.014 (0) Examining (for databases) backup set with group_id=0, nonce=7de60c48c45e, datestamp=1574406238 (Nov 22 2019 07:03:58)
+0001.014 (0) Examining (for databases) backup set with group_id=0, nonce=5252e4993400, datestamp=1574402137 (Nov 22 2019 05:55:37)
+0001.014 (0) Examining (for databases) backup set with group_id=0, nonce=5720fd2f1214, datestamp=1574400369 (Nov 22 2019 05:26:09)
+0001.014 (0) Number of backup sets in history: 10; groups (files): 1
+0001.017 (0) Examining (for files) backup set with nonce=cb53b021e8c0, datestamp=1591225045 (Jun 03 2020 22:57:25)
+0001.017 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0001.019 (0) Examining (for files) backup set with nonce=e94186bc273d, datestamp=1591217332 (Jun 03 2020 20:48:52)
+0001.019 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0001.019 (0) Examining (for files) backup set with nonce=fc4d2c953682, datestamp=1591211534 (Jun 03 2020 19:12:14)
+0001.019 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0001.022 (0) Examining (for files) backup set with nonce=521f6720e5a0, datestamp=1591211531 (Jun 03 2020 19:12:11)
+0001.022 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0001.025 (0) Examining (for files) backup set with nonce=11ab4b19a4cc, datestamp=1591196488 (Jun 03 2020 15:01:28)
+0001.025 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0001.025 (0) Examining (for files) backup set with nonce=cf4d5871a88a, datestamp=1591159794 (Jun 03 2020 04:49:54)
+0001.025 (0) This backup set remains non-empty (f=0/d=1); will retain in history
+0001.025 (0) Examining (for files) backup set with nonce=bbc675060e5d, datestamp=1591155622 (Jun 03 2020 03:40:22)
+0001.026 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0001.028 (0) Examining (for files) backup set with nonce=7de60c48c45e, datestamp=1574406238 (Nov 22 2019 07:03:58)
+0001.028 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0001.028 (0) Examining (for files) backup set with nonce=5252e4993400, datestamp=1574402137 (Nov 22 2019 05:55:37)
+0001.028 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0001.029 (0) Examining (for files) backup set with nonce=5720fd2f1214, datestamp=1574400369 (Nov 22 2019 05:26:09)
+0001.029 (0) This backup set remains non-empty (f=1/d=0); will retain in history
+0001.029 (0) Retain: saving new backup history (sets now: 10) and finishing retain operation
+0001.038 (0) Resume backup (cb53b021e8c0, 0): finish run
+0001.044 (0) Decremented the semaphore (d) by 1
+0001.048 (0) Semaphore (d) unlocked
+0001.050 (0) There were no errors in the uploads, so the 'resume' event (1) is being unscheduled
+0001.059 (0) No email will/can be sent - the user has not configured an email address.
+0001.061 (0) The backup apparently succeeded and is now complete

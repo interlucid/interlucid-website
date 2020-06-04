@@ -11,17 +11,25 @@ get_header();
     <h1 class="mb-4 text-center">Music</h1>
 
     <section class="pt-4 pb-6">
-        <?= get_hero_release_html(33); ?>
+        <?= get_hero_release_html(get_latest_release()); ?>
     </section>
 
     <section class="py-5">
         <h2 class="mb-4 text-center">Platforms</h2>
         <p class="mb-5 text-center">Music is available on all major platforms (and quite a few minor ones)</p>
         <div class="row justify-content-center mb-5">
+            <div class="col-md-12 mb-3">
+                <a class="btn btn-share btn-share-stretch btn-fluid" href="https://www.patreon.com/interlucid/posts" target="_blank">
+                    <svg class="icon icon-7 icon-square icon-white">
+                        <use xlink:href="/wp-content/themes/interlucid/img/logos.svg#patreon">
+                    </svg>
+                    <span>Patreon*</span>
+                </a>
+            </div>
             <?php 
                 $platforms = [
                     [
-                        "name" => "Bandcamp*",
+                        "name" => "Bandcamp* **",
                         "icon" => "bandcamp",
                         "url" => "https://interlucid.bandcamp.com/"
                     ],
@@ -39,6 +47,11 @@ get_header();
                         "name" => "Google Play Music",
                         "icon" => "google-play-music",
                         "url" => "https://play.google.com/store/music/artist?id=Aptgh6wh2nextlsnipi3lrdt6za"
+                    ],
+                    [
+                        "name" => "Audius*",
+                        "icon" => "audius",
+                        "url" => "https://audius.co/interlucid"
                     ],
                     [
                         "name" => "Deezer",
@@ -69,7 +82,8 @@ get_header();
                 </div>
             <?php endforeach; ?>
         </div>
-        <p class="text-center">* Bandcamp and SoundCloud have several tracks not available on other platforms.</p>
+        <p class="text-center">* Tracks go to Patreon first, then Bandcamp, then Audius, then all other platforms.</p>
+        <p class="text-center">** Bandcamp and SoundCloud have several tracks not available on other platforms.</p>
         <p class="text-center">Note: I distribute music on many platforms and have only listed a few here.</p>
     </section>
     <section class="py-5 text-center">

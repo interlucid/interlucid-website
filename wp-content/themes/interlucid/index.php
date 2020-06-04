@@ -26,7 +26,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			<!-- Do the left sidebar check and opens the primary div -->
             <?php // get_template_part( 'global-templates/left-sidebar-check' ); ?>
-            <header class="text-center">
+            <header class=" py-5 text-center">
                 <img src="/wp-content/uploads/name-logo.png" alt="INTERLUCID" style="width: 100%;">
                 <h2>Somewhat modern synthpop from a dreamer</h2>
                 <p>Brandon der Blätter • Pleasant Grove, UT</p>
@@ -34,7 +34,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 			<main class="site-main text-white" id="main">
                 <section class="py-6">
-                    <?= get_hero_release_html(33); ?>
+                    <?= get_hero_release_html(get_latest_release()); ?>
                 </section>
                 <section class="py-5">
                     <div class="row align-items-stretch justify-content-center">
