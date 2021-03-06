@@ -28,7 +28,7 @@ $container = get_theme_mod( 'understrap_container_type' );
             <?php // get_template_part( 'global-templates/left-sidebar-check' ); ?>
             <header class=" py-5 text-center">
                 <img src="/wp-content/uploads/name-logo.png" alt="INTERLUCID" style="width: 100%;">
-                <h2>Somewhat modern synthpop from a dreamer</h2>
+                <h2>Synth-based alt-pop from a dreamer</h2>
                 <p>Brandon der Blätter • Pleasant Grove, UT</p>
             </header>
 

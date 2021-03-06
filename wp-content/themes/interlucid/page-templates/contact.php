@@ -35,30 +35,20 @@ get_header();
             </div>
             <div class="col-md-4 mb-4 mb-md-0">
                 <h3>Twitter</h3>
-                <p>I'm on Twitter and will respond to DMs. I'm going to give priority to Discord though.</p>
-                <a class="btn btn-arrow" href="https://twitter.com/messages/compose?recipient_id=813821504248909824" target="_blank">Twitter DMs</a>
+                <p>If you like the more chaotic nature of Twitter, feel free to @ me there. I'll be posting occasional updates, shower thoughts, etc.</p>
+                <a class="btn btn-arrow" href="https://twitter.com/interlucid" target="_blank">Twitter</a>
             </div>
             <div class="col-md-4">
-                <h3>Facebook</h3>
-                <p>I'm not as excited about Facebook Messenger as I am platforms like Discord, but if you like you can still contact me there.</p>
-                <a class="btn btn-arrow" href="https://www.messenger.com/t/interlucidnoise" target="_blank">Facebook Messenger</a>
+                <h3>Instagram</h3>
+                <p>I try to take pretty pictures now and then. I dont love how Instagram organizes comments, but I'm happy to hear from you there too.</p>
+                <p><a class="btn btn-arrow" href="https://www.instagram.com/interlucid/" target="_blank">Instagram</a></p>
             </div>
         </div>
     </section>
     <section class="py-5">
-        <h2 class="text-center mb-4">Find me on the internets</h2>
+        <h2 class="text-center mb-4">Other places to find me on the internets</h2>
         <p class="text-center mb-5">I'm on quite a few platforms, but I don't use all of them all the time.</p>
         <div class="row">
-            <div class="col-md-4 mb-4">
-                <h3>Twitter</h3>
-                <p>Here's where I'll post occasional updates, shower thoughts, etc.</p>
-                <p><a class="btn btn-arrow" href="https://twitter.com/interlucid" target="_blank">Twitter</a></p>
-            </div>
-            <div class="col-md-4 mb-4">
-                <h3>Reddit</h3>
-                <p>I don't plan on making too many posts on Reddit since it's supposed to be a community, but I'll respond to any and all questions.</p>
-                <p><a class="btn btn-arrow" href="https://www.reddit.com/r/interlucid/" target="_blank">Reddit</a></p>
-            </div>
             <div class="col-md-4 mb-4">
                 <h3>GitHub</h3>
                 <p>This isn't a social network, but if you're interested in code and stuff and the things I build you can check it out here.</p>
@@ -71,14 +61,20 @@ get_header();
             </div>
             <div class="col-md-4 mb-4 mb-md-0">
                 <h3>Facebook</h3>
-                <p>I mostly use Facebook for events and Messenger.</p>
+                <p>I mostly use Facebook for events and Messenger, but I have a page there too if you're into that.</p>
                 <p><a class="btn btn-arrow" href="https://www.facebook.com/interlucidnoise/" target="_blank">Facebook</a></p>
             </div>
-            <div class="col-md-4">
-                <h3>Instagram</h3>
-                <p>I don't love Instagram.  I have one, but I'll probably hire someone to post on it for me.</p>
-                <p><a class="btn btn-arrow" href="https://www.instagram.com/interlucid/" target="_blank">Instagram</a></p>
-            </div>
+        </div>
+    </section>
+    <section class="py-5">
+        <h2 class="text-center mb-4">Physical mail</h2>
+        <div class="d-flex flex-column align-items-center">
+            <p>You can send physical mail to the following address:</p>
+            <p>
+                P.O. Box 196<br>
+                Pleasant Grove, UT<br>
+                84062
+            </p>
         </div>
     </section>
 </div>

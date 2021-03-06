@@ -64,7 +64,7 @@ get_header();
                         "url" => "https://tidal.com/browse/artist/9735664"
                     ],
                     [
-                        "name" => "SoundCloud*",
+                        "name" => "SoundCloud**",
                         "icon" => "soundcloud",
                         "url" => "https://soundcloud.com/interlucid"
                     ],
