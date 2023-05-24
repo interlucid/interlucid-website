@@ -9,9 +9,12 @@ wp-content/blogs.dir/
 wp-content/cache/
 wp-content/upgrade/
 wp-content/uploads/
+wp-content/updraft/
 wp-content/mu-plugins/
 wp-content/wp-cache-config.php
-wp-content/plugins/hello.php
+wp-content/plugins/
+wp-content/themes/
+!wp-content/themes/interlucid
 
 /.htaccess
 /license.txt
@@ -22,3 +25,7 @@ wp-content/plugins/hello.php
 /public-old
 node_modules
 .DS_Store
+.env
+
+# Local Netlify folder
+.netlify

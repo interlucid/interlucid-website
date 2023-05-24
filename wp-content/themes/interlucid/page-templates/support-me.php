@@ -19,10 +19,12 @@ get_header();
                 </picture>
             </div>
             <div class="col-lg-4 pt-3">
-                <p>Patreon is a platform that helps fans support creators they love (like me).  You can be my patron, just like Queen Elizabeth was for Shakespeare.  Pledge as little as $1 a month (or more if you like) to show your support and have access to the following:</p>
+                <p>Patreon is a platform that helps fans support creators they love (like me).  You can be my patron, just like The Earl of Pembroke was for Shakespeare.  Pledge as little as $1 a month (or more if you like) to show your support and have access to the following, depending on the tier you pick:</p>
                 <ul>
                     <li>Be the absolute first to hear new music (including WIPs for VIPs)</li>
+                    <li>Exclusive Minecraft server</li>
                     <li>Downloads of any songs I've ever made</li>
+                    <li>Monthly video chats with me</li>
                     <li>Exclusive Discord server channels</li>
                     <li>Warm fuzzy feelings</li>
                 </ul>

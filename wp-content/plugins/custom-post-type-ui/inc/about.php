@@ -85,16 +85,8 @@ function cptui_settings() {
 		<div class="changelog about-integrations">
 			<div class="cptui-feature feature-section col three-col">
 				<div class="col">
-					<h2><?php esc_html_e( 'Ability to temporarily disable content types without deleting them.', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'Have you ever wanted to temporarily disable things without removing their settings, as you continue developing the site? Custom Post Type UI now has the ability to skip content types with a WordPress filter. UI options to toggle will be in a later version.', 'custom-post-type-ui' ); ?></p>
-				</div>
-				<div class="col">
-					<h2><?php esc_html_e( 'New post type labels introduced in WordPress 5.0', 'custom-post-type-ui' ); ?></h2>
-					<p><?php esc_html_e( 'We have increased our minimum supported WordPress version and with that, we now support the newest available label options. You now have even finer control over your admin UI wording.', 'custom-post-type-ui' ); ?></p>
-				</div>
-				<div class="col last-feature">
-					<h2></h2>
-					<p></p>
+					<h2><?php esc_html_e( 'Dashicon Picker UI', 'custom-post-type-ui' ); ?></h2>
+					<p><?php esc_html_e( 'You no longer have to know the Dashicon class values ahead of time or look them up in the WordPress Developer Documentation. We now provide a visual picker that shows them all for you. All you have to do is choose one.', 'custom-post-type-ui' ); ?></p>
 				</div>
 			</div>
 		</div>

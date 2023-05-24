@@ -19,13 +19,15 @@ $grays: (
     "gray-900": $gray-900
 );
 
-$interlucid-orange: #ff7700;
+$interlucid-light-orange: #ff871e;
+$interlucid-dark-orange: #dd6700;
 
 $theme-colors: map-collect(
     $theme-colors,
     $grays,
     (
-        "primary": $interlucid-orange,
+        "primary": $interlucid-light-orange,
+        "primary-dark": $interlucid-dark-orange,
         "semi-transparent": rgba($gray-900, .5),
         "black": $black,
         "white": $white

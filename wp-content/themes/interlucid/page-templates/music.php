@@ -23,13 +23,13 @@ get_header();
                     <svg class="icon icon-7 icon-square icon-white">
                         <use xlink:href="/wp-content/themes/interlucid/img/logos.svg#patreon">
                     </svg>
-                    <span>Patreon*</span>
+                    <span>Patreon<sup>1</sup></span>
                 </a>
             </div>
             <?php 
                 $platforms = [
                     [
-                        "name" => "Bandcamp* **",
+                        "name" => "Bandcamp<sup>1&nbsp;2</sup>",
                         "icon" => "bandcamp",
                         "url" => "https://interlucid.bandcamp.com/"
                     ],
@@ -44,12 +44,12 @@ get_header();
                         "url" => "https://itunes.apple.com/us/artist/interlucid/1370093375"
                     ],
                     [
-                        "name" => "Google Play Music",
-                        "icon" => "google-play-music",
-                        "url" => "https://play.google.com/store/music/artist?id=Aptgh6wh2nextlsnipi3lrdt6za"
+                        "name" => "YouTube",
+                        "icon" => "youtube",
+                        "url" => "https://www.youtube.com/channel/UCwKXOI-k1AriVbNB6Cg-3Ow"
                     ],
                     [
-                        "name" => "Audius*",
+                        "name" => "Audius<sup>1</sup>",
                         "icon" => "audius",
                         "url" => "https://audius.co/interlucid"
                     ],
@@ -64,7 +64,7 @@ get_header();
                         "url" => "https://tidal.com/browse/artist/9735664"
                     ],
                     [
-                        "name" => "SoundCloud**",
+                        "name" => "SoundCloud<sup>2</sup>",
                         "icon" => "soundcloud",
                         "url" => "https://soundcloud.com/interlucid"
                     ],
@@ -82,8 +82,8 @@ get_header();
                 </div>
             <?php endforeach; ?>
         </div>
-        <p class="text-center">* Tracks go to Patreon first, then Bandcamp, then Audius, then all other platforms.</p>
-        <p class="text-center">** Bandcamp and SoundCloud have several tracks not available on other platforms.</p>
+        <p class="text-center"><sup>1</sup> Tracks go to Patreon first, then Bandcamp, then Audius, then all other platforms.</p>
+        <p class="text-center"><sup>2</sup> Bandcamp and SoundCloud have several tracks not available on other platforms.</p>
         <p class="text-center">Note: I distribute music on many platforms and have only listed a few here.</p>
     </section>
     <section class="py-5 text-center">

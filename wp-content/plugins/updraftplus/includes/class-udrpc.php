@@ -59,7 +59,7 @@ if (!class_exists('UpdraftPlus_Remote_Communications')) :
 class UpdraftPlus_Remote_Communications {
 
 	// Version numbers relate to versions of this PHP library only (i.e. it's not a protocol support number, and version numbers of other compatible libraries (e.g. JavaScript) are not comparable)
-	public $version = '1.4.20';
+	public $version = '1.4.23';
 
 	private $key_name_indicator;
 
@@ -610,8 +610,7 @@ class UpdraftPlus_Remote_Communications {
 	 */
 	public function http_post($post_options) {
 		global $wp_version;
-		// @codingStandardsIgnoreLine
-		@include ABSPATH.WPINC.'/version.php';
+		include ABSPATH.WPINC.'/version.php';
 		$http_credentials = $this->http_credentials;
 
 		if (is_a($this->http_transport, 'GuzzleHttp\Client')) {
@@ -756,8 +755,7 @@ class UpdraftPlus_Remote_Communications {
 			}
 
 			if (empty($decoded)) {
-				$this->log('response from remote site could not be understood: '.substr($response_body, 0, 100).' ... ');
-
+				$this->log('response from remote site ('.$this->destination_url.') could not be understood: '.substr($response_body, 0, 100).' ... ', 'info');
 				return new WP_Error('response_not_understood', 'Response from remote site could not be understood', $response_body);
 			}
 		}
@@ -853,7 +851,7 @@ class UpdraftPlus_Remote_Communications {
 		if (!empty($_SERVER['REQUEST_METHOD']) && 'OPTIONS' == $_SERVER['REQUEST_METHOD'] && $http_origin) {
 			if (in_array($http_origin, $this->allow_cors_from)) {
 				// @codingStandardsIgnoreLine
-				if (!@constant('UDRPC_DO_NOT_SEND_CORS_HEADERS')) {
+				if (!defined('UDRPC_DO_NOT_SEND_CORS_HEADERS') || !UDRPC_DO_NOT_SEND_CORS_HEADERS) {
 					header("Access-Control-Allow-Origin: $http_origin");
 					header('Access-Control-Allow-Credentials: true');
 					if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD'])) header('Access-Control-Allow-Methods: POST, OPTIONS');
@@ -1045,9 +1043,14 @@ class UpdraftPlus_Remote_Communications {
 			}
 
 			$data = isset($response['data']) ? $response['data'] : null;
-			echo json_encode($this->create_message($response['response'], $data, true));
+			
+			$final_response = json_encode($this->create_message($response['response'], $data, true));
+			
+			do_action('udrpc_action_send_response', $final_response, $command);
+			
+			echo $final_response;
 		}
-
+		
 		die;
 
 	}

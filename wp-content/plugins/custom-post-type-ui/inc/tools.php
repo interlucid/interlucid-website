@@ -128,7 +128,7 @@ add_filter( 'cptui_get_tabs', 'cptui_tools_tabs', 10, 2 );
  */
 function cptui_tools() {
 
-	$tab = '';
+	$tab = 'post_types';
 	if ( ! empty( $_GET ) ) {
 		if ( ! empty( $_GET['action'] ) && 'taxonomies' === $_GET['action'] ) {
 			$tab = 'taxonomies';
@@ -136,8 +136,6 @@ function cptui_tools() {
 			$tab = 'get_code';
 		} elseif ( ! empty( $_GET['action'] ) && 'debuginfo' === $_GET['action'] ) {
 			$tab = 'debuginfo';
-		} else {
-			$tab = 'post_types';
 		}
 	}
 
@@ -266,6 +264,7 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 	$public             = isset( $taxonomy['public'] ) ? disp_boolean( $taxonomy['public'] ) : 'true';
 	$publicly_queryable = isset( $taxonomy['publicly_queryable'] ) ? disp_boolean( $taxonomy['publicly_queryable'] ) : disp_boolean( $taxonomy['public'] );
 	$show_in_quick_edit = isset( $taxonomy['show_in_quick_edit'] ) ? disp_boolean( $taxonomy['show_in_quick_edit'] ) : disp_boolean( $taxonomy['show_ui'] );
+	$show_tagcloud      = isset( $taxonomy['show_tagcloud'] ) ? disp_boolean( $taxonomy['show_tagcloud'] ) : disp_boolean( $taxonomy['show_ui'] );
 
 	$show_in_menu = ( ! empty( $taxonomy['show_in_menu'] ) && false !== get_disp_boolean( $taxonomy['show_in_menu'] ) ) ? 'true' : 'false';
 	if ( empty( $taxonomy['show_in_menu'] ) ) {
@@ -283,6 +282,24 @@ function cptui_get_single_taxonomy_registery( $taxonomy = [] ) {
 
 	if ( ! empty( $taxonomy['meta_box_cb'] ) ) {
 		$meta_box_cb = ( false !== get_disp_boolean( $taxonomy['meta_box_cb'] ) ) ? '"' . $taxonomy['meta_box_cb'] . '"' : 'false';
+	}
+
+	$default_term = '';
+	if ( ! empty( $taxonomy['default_term'] ) ) {
+		$term_parts = explode( ',', $taxonomy['default_term'] );
+		$default_term_start = '[';
+		$default_term_end   = ']';
+		if ( ! empty( $term_parts[0] ) ) {
+			$default_term .= "'name' => '" . trim( $term_parts[0] ) . "'";
+		}
+		if ( ! empty( $term_parts[1] ) ) {
+			$default_term .= ", 'slug' => '" . trim( $term_parts[1] ) . "'";
+		}
+		if ( ! empty( $term_parts[2] ) ) {
+			$default_term .= ", 'description' => '" . trim( $term_parts[2] ) . "'";
+		}
+
+		$default_term = $default_term_start . $default_term . $default_term_end;
 	}
 
 	$my_theme   = wp_get_theme();
@@ -308,6 +325,10 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 ?>
 	];
 
+	<?php
+	$show_graphql = isset( $taxonomy['show_in_graphql'] ) ? (bool) $taxonomy['show_in_graphql'] : false;
+	?>
+
 	$args = [
 		"label" => __( "<?php echo $taxonomy['label']; ?>", "<?php echo $textdomain; ?>" ),
 		"labels" => $labels,
@@ -321,12 +342,24 @@ foreach ( $taxonomy['labels'] as $key => $label ) {
 		"rewrite" => <?php echo $rewrite; ?>,
 		"show_admin_column" => <?php echo $taxonomy['show_admin_column']; ?>,
 		"show_in_rest" => <?php echo $show_in_rest; ?>,
+		"show_tagcloud" => <?php echo $show_tagcloud; ?>,
 		"rest_base" => "<?php echo $rest_base; ?>",
 		"rest_controller_class" => "<?php echo $rest_controller_class; ?>",
 		"show_in_quick_edit" => <?php echo $show_in_quick_edit; ?>,
-	<?php if ( ! empty( $meta_box_cb ) ) { ?>
-	"meta_box_cb" => <?php echo $meta_box_cb; ?>,
-	<?php } ?>
+		"sort" => <?php echo disp_boolean( $taxonomy['sort'] ); ?>,
+<?php if ( $show_graphql ) : ?>
+		"show_in_graphql" => <?php echo disp_boolean( $taxonomy['show_in_graphql'] ); ?>,
+		"graphql_single_name" => "<?php echo esc_html( $taxonomy['graphql_single_name'] ); ?>",
+		"graphql_plural_name" => "<?php echo esc_html( $taxonomy['graphql_plural_name'] ); ?>",
+<?php else: ?>
+		"show_in_graphql" => <?php echo disp_boolean( false ); ?>,
+<?php endif; ?>
+<?php if ( ! empty( $meta_box_cb ) ) { ?>
+		"meta_box_cb" => <?php echo $meta_box_cb; ?>,
+<?php } ?>
+<?php if ( ! empty( $default_term ) ) { ?>
+		"default_term" => <?php echo $default_term; ?>,
+<?php } ?>
 	];
 	register_taxonomy( "<?php echo esc_html( $taxonomy['name'] ); ?>", <?php echo $post_types; ?>, $args );
 <?php
@@ -398,6 +431,9 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 			$post_type['supports'][] = $part;
 		}
 	}
+
+
+	$show_graphql = isset( $post_type['show_in_graphql'] ) ? (bool) $post_type['show_in_graphql'] : false;
 
 	$rewrite_withfront = '';
 	$rewrite           = get_disp_boolean( $post_type['rewrite'] );
@@ -541,6 +577,7 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 		"capability_type" => <?php echo $capability_type; ?>,
 		"map_meta_cap" => <?php echo disp_boolean( $post_type['map_meta_cap'] ); ?>,
 		"hierarchical" => <?php echo disp_boolean( $post_type['hierarchical'] ); ?>,
+		"can_export" => <?php echo disp_boolean( $post_type['can_export'] ); ?>,
 		"rewrite" => <?php echo $rewrite; ?>,
 		"query_var" => <?php echo $post_type['query_var']; ?>,
 <?php if ( ! empty( $post_type['menu_position'] ) ) { ?>
@@ -558,6 +595,13 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
 <?php if ( true === $yarpp ) { ?>
 		"yarpp_support" => <?php echo disp_boolean( $yarpp ); ?>,
 <?php } ?>
+<?php if ( $show_graphql ) : ?>
+		"show_in_graphql" => <?php echo disp_boolean( $post_type['show_in_graphql'] ); ?>,
+		"graphql_single_name" => "<?php echo esc_html( $post_type['graphql_single_name'] ); ?>",
+		"graphql_plural_name" => "<?php echo esc_html( $post_type['graphql_plural_name'] ); ?>",
+<?php else: ?>
+		"show_in_graphql" => <?php echo disp_boolean( false ); ?>,
+<?php endif; ?>
 	];
 
 	register_post_type( "<?php echo esc_html( $post_type['name'] ); ?>", $args );
@@ -575,11 +619,12 @@ function cptui_get_single_post_type_registery( $post_type = [] ) {
  * @return mixed false on nothing to do, otherwise void.
  */
 function cptui_import_types_taxes_settings( $postdata = [] ) {
-	if ( ! isset( $postdata['cptui_post_import'] ) && ! isset( $postdata['cptui_tax_import'] ) ) {
+	if ( ! isset( $postdata['cptui_post_import'] ) && ! isset( $postdata['cptui_tax_import'] ) && ! array_key_exists( 'delete', $postdata ) ) {
 		return false;
 	}
 
-	if ( ! check_admin_referer( 'cptui_typetaximport_nonce_action', 'cptui_typetaximport_nonce_field' ) ) {
+	$doing_wp_cli = ( defined( 'WP_CLI' ) && WP_CLI );
+	if ( ! $doing_wp_cli && ! check_admin_referer( 'cptui_typetaximport_nonce_action', 'cptui_typetaximport_nonce_field' ) ) {
 		return 'nonce_fail';
 	}
 
@@ -616,13 +661,15 @@ function cptui_import_types_taxes_settings( $postdata = [] ) {
 		$postdata['cptui_tax_import'] = $third_party_taxonomy_data;
 	}
 
-	if ( ! empty( $postdata['cptui_post_import'] ) ) {
-		$cpt_data = stripslashes_deep( trim( $postdata['cptui_post_import'] ) );
-		$settings = json_decode( $cpt_data, true );
+	if ( ! empty( $postdata['cptui_post_import'] ) || ( isset( $postdata['delete'] ) && 'type_true' === $postdata['delete'] ) ) {
+		$settings = null;
+		if ( ! empty( $postdata['cptui_post_import'] ) ) {
+			$settings = $postdata['cptui_post_import'];
+		}
 
 		// Add support to delete settings outright, without accessing database.
 		// Doing double check to protect.
-		if ( null === $settings && '{""}' === $cpt_data ) {
+		if ( null === $settings && ( isset( $postdata['delete'] ) && 'type_true' === $postdata['delete'] ) ) {
 
 			/**
 			 * Filters whether or not 3rd party options were deleted successfully within post type import.
@@ -663,13 +710,15 @@ function cptui_import_types_taxes_settings( $postdata = [] ) {
 		if ( $success ) {
 			$status = 'import_success';
 		}
-	} elseif ( ! empty( $postdata['cptui_tax_import'] ) ) {
-		$tax_data = stripslashes_deep( trim( $postdata['cptui_tax_import'] ) );
-		$settings = json_decode( $tax_data, true );
+	} elseif ( ! empty( $postdata['cptui_tax_import'] ) || ( isset( $postdata['delete'] ) && 'tax_true' === $postdata['delete'] ) ) {
+		$settings = null;
 
+		if ( ! empty( $postdata['cptui_tax_import'] ) ) {
+			$settings = $postdata['cptui_tax_import'];
+		}
 		// Add support to delete settings outright, without accessing database.
 		// Doing double check to protect.
-		if ( null === $settings && '{""}' === $tax_data ) {
+		if ( null === $settings && ( isset( $postdata['delete'] ) && 'tax_true' === $postdata['delete'] ) ) {
 
 			/**
 			 * Filters whether or not 3rd party options were deleted successfully within taxonomy import.
@@ -931,18 +980,16 @@ function cptui_render_debuginfo_section() {
  * @param string $tab Current tab to display.
  */
 function cptui_render_tools( $tab ) {
-	if ( isset( $tab ) ) {
-		if ( 'post_types' === $tab || 'taxonomies' === $tab ) {
-			cptui_render_posttypes_taxonomies_section();
-		}
+	if ( 'post_types' === $tab || 'taxonomies' === $tab ) {
+		cptui_render_posttypes_taxonomies_section();
+	}
 
-		if ( 'get_code' === $tab ) {
-			cptui_render_getcode_section();
-		}
+	if ( 'get_code' === $tab ) {
+		cptui_render_getcode_section();
+	}
 
-		if ( 'debuginfo' === $tab ) {
-			cptui_render_debuginfo_section();
-		}
+	if ( 'debuginfo' === $tab ) {
+		cptui_render_debuginfo_section();
 	}
 }
 add_action( 'cptui_tools_sections', 'cptui_render_tools' );
@@ -958,7 +1005,42 @@ function cptui_do_import_types_taxes() {
 	     ( ! empty( $_POST['cptui_post_import'] ) && isset( $_POST['cptui_post_import'] ) ) ||
 	     ( ! empty( $_POST['cptui_tax_import'] ) && isset( $_POST['cptui_tax_import'] ) )
 	) {
-		$success = cptui_import_types_taxes_settings( $_POST );
+		$data              = [];
+		$decoded_post_data = null;
+		$decoded_tax_data  = null;
+		if ( ! empty( $_POST['cptui_post_import'] ) ) {
+			$decoded_post_data = json_decode( stripslashes_deep( trim( $_POST['cptui_post_import'] ) ), true );
+		}
+
+		if ( ! empty( $_POST['cptui_tax_import'] ) ) {
+			$decoded_tax_data = json_decode( stripslashes_deep( trim( $_POST['cptui_tax_import'] ) ), true );
+		}
+
+		if (
+			empty( $decoded_post_data ) &&
+			empty( $decoded_tax_data ) &&
+			(
+				! empty( $_POST['cptui_post_import'] ) && '{""}' !== stripslashes_deep( trim( $_POST['cptui_post_import'] ) )
+			) &&
+			(
+				! empty( $_POST['cptui_tax_import'] ) && '{""}' !== stripslashes_deep( trim( $_POST['cptui_tax_import'] ) )
+			)
+		) {
+			return;
+		}
+		if ( null !== $decoded_post_data ) {
+			$data['cptui_post_import'] = $decoded_post_data;
+		}
+		if ( null !== $decoded_tax_data ) {
+			$data['cptui_tax_import'] = $decoded_tax_data;
+		}
+		if ( ! empty( $_POST['cptui_post_import'] ) && '{""}' === stripslashes_deep( trim( $_POST['cptui_post_import'] ) ) ) {
+			$data['delete'] = 'type_true';
+		}
+		if ( ! empty( $_POST['cptui_tax_import'] ) && '{""}' === stripslashes_deep( trim( $_POST['cptui_tax_import'] ) ) ) {
+			$data['delete'] = 'tax_true';
+		}
+		$success = cptui_import_types_taxes_settings( $data );
 		add_action( 'admin_notices', "cptui_{$success}_admin_notice" );
 	}
 }

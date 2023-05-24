@@ -11,18 +11,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+
 $container = get_theme_mod( 'understrap_container_type' );
+
+require_once($_SERVER['DOCUMENT_ROOT'] . '/wp-content/themes/interlucid/template-parts/subscribe-overlay.php')
 ?>
 
 <?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
 
-<div class="wrapper" id="wrapper-footer">
+<div class="wrapper bg-gray-800 pt-5" id="wrapper-footer">
 
-	<div class="<?php echo esc_attr( $container ); ?>">
+	<div class="<?php echo esc_attr( $container ); ?> ">
 
-        <footer class="site-footer text-gray-600 text-center" id="colophon">
+        <footer class="site-footer" id="colophon">
 
-            <div class="site-info py-4">
+            <?php echo get_subscribe_overlay(); ?>
+
+            <div class="site-info text-gray-400 text-center py-4">
 
                 Copyright © <script>document.write(new Date().getFullYear())</script> Interlucid
 

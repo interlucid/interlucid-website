@@ -28,8 +28,8 @@ $container = get_theme_mod( 'understrap_container_type' );
             <?php // get_template_part( 'global-templates/left-sidebar-check' ); ?>
             <header class=" py-5 text-center">
                 <img src="/wp-content/uploads/name-logo.png" alt="INTERLUCID" style="width: 100%;">
-                <h2>Synth-based alt-pop from a dreamer</h2>
-                <p>Brandon der Blätter • Pleasant Grove, UT</p>
+                <h2>Epic retro synthpop from a dreamer</h2>
+                <p>Interlucid is Brandon der Blätter, based in Seattle, WA</p>
             </header>
 
 			<main class="site-main text-white" id="main">
@@ -51,7 +51,7 @@ $container = get_theme_mod( 'understrap_container_type' );
                             <a class="btn btn-big btn-fluid" href="/support-me/">Support me</a>
                         </div>
                         <div class="col-sm-6 col-lg-4">
-                            <a class="btn btn-big btn-fluid" href="/shows/">See me play</a>
+                            <a class="btn btn-big btn-fluid" href="/shows/">Go to concerts</a>
                         </div>
                     </div>
                 </section>

@@ -39,11 +39,16 @@ function get_hero_release_html($post_id) {
     $title = get_the_title($post_id);
     $image_path = get_field('image_path', $post_id);
     $hyperfollow_link = get_field('hyperfollow_link', $post_id);
+    $release_date = get_field('date', $post_id);
+	$title_script = '<script>document.write(`${ new Date("' . $release_date . '") > new Date() ? "Upcoming" : "Latest" } Release: "' . $title . '"`)</script>';
+	$title_text = $release_date ? $title_script : "Latest Release: \"$title\"";
+	$cta_script = '<script>document.write(`${ new Date("' . $release_date . '") > new Date() ? "Pre-save" : "Stream/Download" } "' . $title . '"`)</script>';
+	$cta_text = $release_date ? $cta_script : "Stream/Download \"$title\"";
     return <<<HTML
 <div class="text-center">
-    <h2 class="mb-4">Latest Release: "$title"</h2>
-    <a href="$hyperfollow_link" target="_blank"><img class="mb-4 img-fluid" src="$image_path" alt="$title Art"></a>
-    <a class="btn" href="$hyperfollow_link" target="_blank">Stream/Download "$title"</a>
+    <h2 class="mb-4">$title_text</h2>
+    <a class="d-block" href="$hyperfollow_link" target="_blank"><img class="mb-4 img-fluid" src="$image_path" alt="$title Art"></a>
+    <a class="btn btn-primary" href="$hyperfollow_link" target="_blank">$cta_text</a>
 </div>
 HTML;
 }

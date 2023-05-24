@@ -1,15 +1,16 @@
 
 .btn {
-    border: solid $white .1rem;
+    border: solid $white .2rem;
     border-radius: .3em;
     color: $white;
     transition: all .5s;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2em;
+    font-size: 1.3em;
+    font-weight: 500;
     line-height: 1;
-    padding: map-get($spacers, 3) map-get($spacers, 4);
+    padding: 1rem 1.5rem 1.2rem;
 
     &:hover {
         background-color: $gray-100;
@@ -17,6 +18,49 @@
         * {
             fill: $gray-900;
         }
+    }
+
+    &:focus {
+        box-shadow: 0 0 .3rem .2rem map-get($theme-colors, 'white');
+    }
+
+    &.btn-primary {
+        position: relative;
+        background-image: linear-gradient(45deg, map-get($theme-colors, 'primary'), map-get($theme-colors, 'primary-dark'));
+        border-color: map-get($theme-colors, 'primary');
+        color: map-get($theme-colors, 'black');
+        z-index: 1;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.5s ease;
+            background-image: linear-gradient(45deg, map-get($theme-colors, 'black'), map-get($theme-colors, 'gray-800'));
+            background-color: map-get($theme-colors, 'black');
+            border-color: map-get($theme-colors, 'primary');
+        }
+
+        &:hover {
+            color: map-get($theme-colors, 'primary');
+
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        &:focus {
+            box-shadow: 0 0 .3rem .2rem map-get($theme-colors, 'primary');
+        }
+    }
+
+    &.btn-small {
+        padding: .7rem .9rem .9rem
     }
 
     &.btn-big {
@@ -56,7 +100,7 @@
     &.btn-arrow {
         border: none;
         padding: map-get($spacers, 2) 0;
-        color: $interlucid-orange;
+        color: map-get($theme-colors, 'primary');
 
         &::after {
             content: '>';

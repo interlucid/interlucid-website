@@ -6,7 +6,7 @@ get_header();
 
 ?>
 
-<div class="container pt-6 text-center">
+<div class="container py-6 text-center">
     <h1 class="mb-4">Shows</h1>
     <!-- <p>There are currently no upcoming shows.</p> -->
     <a href="https://www.songkick.com/artists/9856454" class="songkick-widget" data-theme="dark" data-track-button="on" data-detect-style="true" data-background-color="transparent"></a>
