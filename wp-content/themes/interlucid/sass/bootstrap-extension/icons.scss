@@ -1,0 +1,19 @@
+.icon {
+    display: inline-block;
+}
+
+@each $number, $size in $icon-sizes {
+    .icon-#{$number} {
+        height: $size;
+
+        &.icon-square {
+            width: $size;
+        }
+    }
+}
+
+@each $color-name, $color-value in $theme-colors {
+    .icon-#{$color-name} {
+        fill: $color-value;
+    }
+}

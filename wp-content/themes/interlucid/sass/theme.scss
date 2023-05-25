@@ -1,0 +1,24 @@
+@import "../node_modules/bootstrap/scss/_functions"; // import default things first
+@import "../node_modules/bootstrap/scss/_variables";
+
+@import "bootstrap-extension/variables"; // import custom variables
+
+@import "../node_modules/bootstrap/scss/_mixins";
+@import "../node_modules/bootstrap/scss/_root";
+@import "../node_modules/bootstrap/scss/_reboot";
+@import "../node_modules/bootstrap/scss/_utilities";
+
+// import selected Bootstrap files
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+// import Bootstrap overrides for individual components/utilities
+
+@import "bootstrap-extension/buttons";
+@import "bootstrap-extension/icons";
+@import "bootstrap-extension/images";
+@import "bootstrap-extension/navbar";
+@import "bootstrap-extension/reboot";
+@import "bootstrap-extension/type";
+
+@import "bootstrap-extension/utilities/text";

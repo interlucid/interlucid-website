@@ -24,7 +24,9 @@
 /wp-content/upgrade
 /wp-content/uploads/wp-static*
 /wp-content/updraft
-/wp-content/themes
+/wp-content/themes/*
+# allow Interlucid theme
+!/wp-content/themes/interlucid
 /wp-content/wp-cache-config.php
 /wp-cron.php
 /wp-feed.php
@@ -42,9 +44,6 @@
 /wp-signup.php
 /wp-trackback.php
 /xmlrpc.php
-
-# allow Interlucid theme
-!/wp-content/themes/interlucid
 
 /.htaccess
 /license.txt
