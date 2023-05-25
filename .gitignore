@@ -12,6 +12,7 @@
 /wp-comments-post.php
 /wp-commentsrss2.php
 /wp-config-sample.php
+/wp-config/*
 /wp-content/index.php
 /wp-content/advanced-cache.php
 /wp-content/backup-db
@@ -43,7 +44,7 @@
 /xmlrpc.php
 
 # allow Interlucid theme
-!wp-content/themes/interlucid
+!/wp-content/themes/interlucid
 
 /.htaccess
 /license.txt
