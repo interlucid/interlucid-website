@@ -33,9 +33,11 @@ $container = get_theme_mod( 'understrap_container_type' );
             </header>
 
 			<main class="site-main text-white" id="main">
+                <?php /*
                 <section class="py-6">
                     <?= get_hero_release_html(get_latest_release()); ?>
                 </section>
+                */ ?>
                 <section class="py-5">
                     <div class="row align-items-stretch justify-content-center">
                         <div class="col-sm-6 col-lg-4 mb-3">

@@ -21,14 +21,14 @@ $container = get_theme_mod( 'understrap_container_type' );
     
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/favicon.png" type="image/x-icon">
-
+    <?php /*
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-131440072-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NVCY5WGVWL"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'UA-131440072-1');
+        gtag('config', 'G-NVCY5WGVWL');
     </script>
     <!-- End Google Analytics -->
 
@@ -57,14 +57,17 @@ $container = get_theme_mod( 'understrap_container_type' );
     src="https://www.facebook.com/tr?id=473945020062971&ev=PageView&noscript=1"
     /></noscript>
     <!-- End Facebook Pixel -->
+    */ ?>
 	<?php wp_head(); ?>
 </head>
 
 <body <?php body_class('bg-gray-900'); ?>>
+<?php /*
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WCFQNX"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+*/ ?>
 
 <div class="site" id="page">
 

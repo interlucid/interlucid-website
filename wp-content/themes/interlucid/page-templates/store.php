@@ -8,19 +8,16 @@ get_header();
 
 <div class="container pt-6 text-center">
     <h1 class="text-center">Store</h1>
-    <section class="py-5">
-        <div class="row mb-5">
-            <div class="col-md-6">
-                <h3>Do you like to wear clothes?</h3>
-                <p><a class="btn" href="https://interlucid.threadless.com/mens/classic-t-shirt" target="_blank">Buy a shirt</a></p>
-            </div>
-            <div class="col-md-6">
-                <h3>Do you like random items with the Interlucid logo on them?</h3>
-                <p><a class="btn" href="https://www.redbubble.com/people/interlucid/shop">Buy random items</a></p>
-                <p>Note: this includes things like phone cases and duvet covers.  I kid you not.</p>
+    <section class="py-4">
+        <div class="row mb-5 justify-content-md-center">
+            <div class="col-md-8">
+                <h3 class="mb-3">T-shirts, CDs, and stickers</h3>
+                <p>Talk to me at events or <a href="/contact">contact me online</a> for shirts, CDs, and stickers while supplies last.</p>
+                <!-- <p><a class="btn btn-primary" href="https://interlucid.myshopify.com/" target="_blank">Go to store</a></p> -->
+                <h3>Random items</h3>
+                <p>There are many more items here like phone cases and duvet covers <a href="https://www.redbubble.com/people/interlucid/shop">on my third party store</a>. All orders are fulfilled by a third party that I have little control over.</p>
             </div>
         </div>
-        <p>Eventually I'll put together a unified store on this site, but this will have to do for now.</p>
     </section>
 </div>
 

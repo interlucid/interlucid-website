@@ -23,6 +23,7 @@
 /wp-content/plugins
 /wp-content/upgrade
 /wp-content/uploads/wp-static*
+/wp-content/uploads/simply-static*
 /wp-content/updraft
 /wp-content/themes/*
 # allow Interlucid theme
